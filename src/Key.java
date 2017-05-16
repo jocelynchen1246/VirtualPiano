@@ -43,5 +43,14 @@ public class Key {
 	{
 		
 	}
+	
+	/**
+	 * Checks to see if the key is being played.
+	 * @return true if the key is being played, false if otherwise
+	 */
+	public boolean isPlaying()
+	{
+		return isPlaying;
+	}
 
 }
