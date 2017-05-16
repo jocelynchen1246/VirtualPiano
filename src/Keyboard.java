@@ -18,7 +18,7 @@ public class Keyboard extends JPanel implements KeyListener{
 	/**
 	 * Creates a keyboard with two octaves.
 	 */
-	public Keyboard()
+	public Keyboard(RealtimePlayer player)
 	{
 		super();
 	}
