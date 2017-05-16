@@ -14,7 +14,7 @@ public class Score {
 	}
 	/**
 	 * This method calculates the accuracy of how accurate the player played the piano piece.
-	 * @return score the percentage of the accuracy
+	 * @return score, the percentage of the accuracy
 	 */
 	public double calcScore(){
 		
