@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+* This class stores all the accuracy scores that the player has for a certain song.
+* @author Natalie Tarn
+*/
 public class Score {
 	private ArrayList<Double> score;
 	/**
@@ -11,7 +14,7 @@ public class Score {
 	}
 	/**
 	 * This method calculates the accuracy of how accurate the player played the piano piece.
-	 * @return score the percentage of the accuracy
+	 * @return score, the percentage of the accuracy
 	 */
 	public double calcScore(){
 		
@@ -19,7 +22,7 @@ public class Score {
 		return 0;
 	}
 	/**
-	 * This method ranks all the player's scores in order in the ArrayList.
+	 * This method ranks all the player's scores in order in the score ArrayList.
 	 */
 	private void rankScore(){
 		
