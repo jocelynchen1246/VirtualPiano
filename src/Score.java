@@ -22,7 +22,7 @@ public class Score {
 		return 0;
 	}
 	/**
-	 * This method ranks all the player's scores in order in the ArrayList.
+	 * This method ranks all the player's scores in order in the score ArrayList.
 	 */
 	private void rankScore(){
 		
