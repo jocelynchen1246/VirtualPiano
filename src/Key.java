@@ -32,7 +32,8 @@ public class Key {
 	{
 		if(!isPlaying)
 		{
-			
+			player.startNote(note);
+			isPlaying = true;
 		}
 	}
 	
@@ -41,7 +42,11 @@ public class Key {
 	 */
 	public void stop()
 	{
-		
+		if(isPlaying)
+		{
+			player.stopNote(note);
+			isPlaying = false;
+		}
 	}
 	
 	/**

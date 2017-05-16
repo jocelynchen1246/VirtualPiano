@@ -11,7 +11,7 @@ public class Main {
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		RealtimePlayer player = new RealtimePlayer();
 		Keyboard board = new Keyboard(player);
-		w.add(board);
+		w.setFocusTraversalKeysEnabled(false);
 	    w.setVisible(true);
 	    
 	    w.addKeyListener(board);
