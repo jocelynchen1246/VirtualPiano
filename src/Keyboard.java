@@ -17,6 +17,7 @@ import org.jfugue.realtime.RealtimePlayer;
 public class Keyboard extends JPanel implements KeyListener{
 
 	private Key[] keys;
+	private int[] sharpXVal;
 	
 	/**
 	 * Creates a keyboard with two octaves.
@@ -25,6 +26,9 @@ public class Keyboard extends JPanel implements KeyListener{
 	{
 		super();
 		setBackground(Color.WHITE);
+		
+		setFocusTraversalKeysEnabled(false);
+		
 		keys = new Key[25];
 		keys[0] = new Key(48, player);
 		keys[1] = new Key(50, player);
@@ -52,6 +56,18 @@ public class Keyboard extends JPanel implements KeyListener{
 		keys[23] = new Key(68, player);
 		keys[24] = new Key(70, player);
 
+		sharpXVal = new int[10];
+		sharpXVal[0] = 50;
+		sharpXVal[1] = 130;
+		sharpXVal[2] = 290;
+		sharpXVal[3] = 370;
+		sharpXVal[4] = 450;
+		sharpXVal[5] = 610;
+		sharpXVal[6] = 690;
+		sharpXVal[7] = 850;
+		sharpXVal[8] = 930;
+		sharpXVal[9] = 1010;
+
 	}
 
 	/**
@@ -64,7 +80,7 @@ public class Keyboard extends JPanel implements KeyListener{
 	    int width = getWidth();
 	    int height = getHeight();
 
-	    double ratioX = width/1125.0;
+	    double ratioX = width/1195.0;
 	    double ratioY = height/400.0;
 	    //multiply all X values by the x ratio and multiply all y values by the y ratio
 	    //scale method in Graphics 2D
@@ -73,20 +89,40 @@ public class Keyboard extends JPanel implements KeyListener{
 	    
 	   
 	    g2.setStroke(new BasicStroke(5));
-	    for(int i = 0; i < 15; i++)
+	    for(int i = 0; i < 25; i++)
 	    {
 	    	if(keys[i].isPlaying())
 	    	{
-	    		System.out.println(i);
-	    		g.setColor(Color.GREEN);
-	    		g.drawRect(i*75, 0, 75, 400);
+    			g.setColor(Color.magenta);
+    			if(i < 15)
+		    		g.drawRoundRect(i*80, -10, 75, 410, 20, 20);
+    			else
+    				g.fillRect(sharpXVal[i-15], 0, 50, 250);
 	    	}
 	    	else
 	    	{
 	    		g.setColor(Color.BLACK);
-	    		g.drawRect(i*75, 0, 75, 400);
+	    		if(i < 15)
+	    			g.drawRoundRect(i*80, -10, 75, 410, 20, 20);
+	    		else
+    				g.fillRect(sharpXVal[i-15], 0, 50, 250);
 	    	}
 	    }
+	    
+	    /*
+	    g.setColor(Color.BLACK);
+	    g.fillRect(50, 0, 50, 250);
+	    g.fillRect(130, 0, 50, 250);
+	    g.fillRect(290, 0, 50, 250);
+	    g.fillRect(370, 0, 50, 250);
+	    g.fillRect(450, 0, 50, 250);
+	    g.fillRect(610, 0, 50, 250);
+	    g.fillRect(690, 0, 50, 250);
+	    g.fillRect(850, 0, 50, 250);
+	    g.fillRect(930, 0, 50, 250);
+	    g.fillRect(1010, 0, 50, 250);
+*/
+	    
 	   
 	}
 	
@@ -198,6 +234,7 @@ public class Keyboard extends JPanel implements KeyListener{
 		{
 			keys[24].play();
 		}
+		repaint();
 	}
 
 	/**
@@ -307,7 +344,7 @@ public class Keyboard extends JPanel implements KeyListener{
 		{
 			keys[24].stop();
 		}
-		
+		repaint();
 	}
 
 	/**
