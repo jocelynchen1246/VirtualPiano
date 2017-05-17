@@ -5,8 +5,12 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.sound.midi.MidiDevice;
 import javax.swing.JPanel;
 
+import org.jfugue.devices.MidiParserReceiver;
+import org.jfugue.devices.MusicTransmitterToParserListener;
+import org.jfugue.devices.MusicTransmitterToSequence;
 import org.jfugue.realtime.RealtimePlayer;
 
 /**
@@ -18,6 +22,7 @@ public class Keyboard extends JPanel implements KeyListener{
 
 	private Key[] keys;
 	private int[] sharpXVal;
+
 	
 	/**
 	 * Creates a keyboard with two octaves.
@@ -26,7 +31,7 @@ public class Keyboard extends JPanel implements KeyListener{
 	{
 		super();
 		setBackground(Color.WHITE);
-
+		
 	    setFocusTraversalKeysEnabled(false);
 	    System.out.println(getFocusTraversalKeysEnabled());
 		keys = new Key[25];
@@ -67,7 +72,8 @@ public class Keyboard extends JPanel implements KeyListener{
 		sharpXVal[7] = 850;
 		sharpXVal[8] = 930;
 		sharpXVal[9] = 1010;
-
+		
+		
 	}
 
 	/**

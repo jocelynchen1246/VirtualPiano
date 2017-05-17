@@ -94,9 +94,7 @@ public class JFugue7 extends Application {
         try {
         	parser.parse(MidiSystem.getSequence(new File("twinkle_twinkle.mid")));
             pattern = listener.getPattern();
-            MidiFileManager
-                    .savePatternToMidi(pattern,
-                            new File("JFugue7_2.mid"));
+            
             
 
         } 
@@ -105,8 +103,8 @@ public class JFugue7 extends Application {
         }
         catch (IOException ex) {
         }
-        
-        player.play(pattern);
-        text.appendText("\n\n2. "+pattern);
+       // text.appendText("\n\n2. "+pattern);
+       player.play(pattern);
+       
     }
 }
