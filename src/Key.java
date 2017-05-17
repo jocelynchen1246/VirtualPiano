@@ -32,7 +32,8 @@ public class Key {
 	{
 		if(!isPlaying)
 		{
-			
+			player.startNote(note);
+			isPlaying = true;
 		}
 	}
 	
@@ -41,7 +42,20 @@ public class Key {
 	 */
 	public void stop()
 	{
-		
+		if(isPlaying)
+		{
+			player.stopNote(note);
+			isPlaying = false;
+		}
+	}
+	
+	/**
+	 * Checks to see if the key is being played.
+	 * @return true if the key is being played, false if otherwise
+	 */
+	public boolean isPlaying()
+	{
+		return isPlaying;
 	}
 
 }
