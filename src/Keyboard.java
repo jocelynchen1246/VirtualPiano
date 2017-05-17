@@ -26,9 +26,9 @@ public class Keyboard extends JPanel implements KeyListener{
 	{
 		super();
 		setBackground(Color.WHITE);
-		
-		setFocusTraversalKeysEnabled(false);
-		
+
+	    setFocusTraversalKeysEnabled(false);
+	    System.out.println(getFocusTraversalKeysEnabled());
 		keys = new Key[25];
 		keys[0] = new Key(48, player);
 		keys[1] = new Key(50, player);
@@ -202,7 +202,7 @@ public class Keyboard extends JPanel implements KeyListener{
 		{
 			keys[16].play();
 		}
-		else if(key == KeyEvent.VK_3)
+		else if(key == KeyEvent.VK_4)
 		{
 			keys[17].play();
 		}
@@ -312,7 +312,7 @@ public class Keyboard extends JPanel implements KeyListener{
 		{
 			keys[16].stop();
 		}
-		else if(key == KeyEvent.VK_3)
+		else if(key == KeyEvent.VK_4)
 		{
 			keys[17].stop();
 		}

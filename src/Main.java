@@ -16,6 +16,7 @@ public class Main {
 	    w.setVisible(true);
 	    
 	    w.addKeyListener(board);
+	    
 	}
 
 }
