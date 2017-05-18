@@ -13,7 +13,7 @@ public class Song {
 	private Pattern tune=new Pattern();
 	/**
 	 * Creates a song based on the title of the song chosen.
-	 * @param name, the title of the song
+	 * @param name, the title of the song.
 	 */
 	public Song(String name){
 		

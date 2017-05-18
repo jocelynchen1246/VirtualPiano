@@ -17,7 +17,7 @@ public class Player {
 	private ArrayList<Double> scores;
 	private ArrayList<ArrayList<Double>> song;
 	/**
-	 * This constructor creates a list of scores that a player receives after playing a piece.
+	 * This constructor creates a list of a list of scores that a player receives after playing a piece.
 	 */
 	public Player(){
 		scores= new ArrayList<Double>();
