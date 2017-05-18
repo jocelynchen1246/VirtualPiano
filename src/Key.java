@@ -11,7 +11,7 @@ public class Key {
 	private RealtimePlayer player;
 	private Note note;
 	private boolean isPlaying;
-	
+	private int time;
 	/**
 	 * Creates a key that plays the note with the midi number provided and plays the key using the player passed in.
 	 * @param midi midi number correlating to the note
@@ -22,6 +22,7 @@ public class Key {
 		player = play;
 		note = new Note(midi);
 		isPlaying = false;
+		time = 0;
 	}
 	
 	/**
@@ -35,18 +36,22 @@ public class Key {
 			player.startNote(note);
 			isPlaying = true;
 		}
+		time++;
 	}
 	
 	/**
 	 * Stops playing the note if it is currently playing. 
 	 */
-	public void stop()
+	public int stop()
 	{
 		if(isPlaying)
 		{
 			player.stopNote(note);
 			isPlaying = false;
 		}
+		int temp = time;
+		time = 0;
+		return temp;
 	}
 	
 	/**

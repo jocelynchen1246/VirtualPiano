@@ -281,7 +281,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 		}
 		else if(key == KeyEvent.VK_U)
 		{
-			keys[7].stop();
+			System.out.println(keys[7].stop());
 		}
 		else if(key == KeyEvent.VK_I)
 		{
