@@ -57,5 +57,14 @@ public class Key {
 	{
 		return isPlaying;
 	}
+	
+	/**
+	 * Gets the note of the key.
+	 * @return the note of the key
+	 */
+	public Note getNote()
+	{
+		return note;
+	}
 
 }

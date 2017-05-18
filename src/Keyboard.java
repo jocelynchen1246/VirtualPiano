@@ -2,6 +2,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -18,7 +19,7 @@ import org.jfugue.realtime.RealtimePlayer;
  * @author Jocelyn
  *
  */
-public class Keyboard extends JPanel implements KeyListener{
+public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 
 	private Key[] keys;
 	private int[] sharpXVal;
@@ -360,6 +361,16 @@ public class Keyboard extends JPanel implements KeyListener{
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean dispatchKeyEvent(KeyEvent e) {
+		int code = e.getKeyCode();
+		if(code == KeyEvent.VK_TAB)
+		{
+			
+		}
+		return false;
 	}
 	
 }
