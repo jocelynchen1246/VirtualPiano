@@ -32,8 +32,7 @@ public class Main extends JFrame {
 		c = new CardLayout();
 		j = new JPanel();
 		k = new Keyboard(new RealtimePlayer());
-		wk = new WaterfallKeyboard(new RealtimePlayer());
-		w = new WaterfallScreen();
+		
 		wfscreen = new JPanel();
 		j.setLayout(c);
 		setBounds(100, 100, 1125, 800);
@@ -42,6 +41,8 @@ public class Main extends JFrame {
 		add(j, BorderLayout.CENTER);
 		j.add(game, "0");
 		RealtimePlayer player = new RealtimePlayer();
+		wk = new WaterfallKeyboard(player);
+		w = new WaterfallScreen(player);
 		Keyboard board = new Keyboard(player);
 		setFocusTraversalKeysEnabled(false);
 	    addKeyListener(board);
@@ -103,8 +104,8 @@ public class Main extends JFrame {
 				// TODO Auto-generated method stub
 			//	wfscreen.setLayout(new BorderLayout());
 				w.setLayout(new BorderLayout());
+				w.add(wk);
 			//	wfscreen.add(w, BorderLayout.CENTER);
-			//	wfscreen.add(wk, BorderLayout.SOUTH);
 				j.add(w, "2");
 				btnpnl.setVisible(false);
 				wback.setVisible(true);

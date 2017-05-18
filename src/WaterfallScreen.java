@@ -3,8 +3,10 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionListener;
 
 import javax.sound.midi.MidiUnavailableException;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jfugue.realtime.RealtimePlayer;
@@ -20,22 +22,31 @@ public class WaterfallScreen extends JPanel{
 	private WaterfallKeyboard key;
 	private Waterfall synth;
 	public static final int WIDTH = 1125;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 200;
 	private int count, interval;
-	
+	private RealtimePlayer player;
 	
 	/**
 	 * Creates a JPanel that displays the waterfall formatting of the
 	 * @throws midi unavailable exception 
 	 */
-	public WaterfallScreen() throws MidiUnavailableException{
+	public WaterfallScreen(RealtimePlayer play) throws MidiUnavailableException{
+		super();
+		player = play;
 		count = 0;
 		interval = 0;
 		waterfall = new JPanel();
 		wf = new JPanel();
 		waterfall.setLayout(new BorderLayout());
-		key = new WaterfallKeyboard(new RealtimePlayer());
+		key = new WaterfallKeyboard(player);
 		synth = new Waterfall( new Song ("mary had a little lamb"));
+		
+		waterfall.setBounds(100, 100, 1125, 200);
+  		
+  		waterfall.setFocusTraversalKeysEnabled(false);
+ 		key.setFocusTraversalKeysEnabled(false);
+ 	
+  	    waterfall.addKeyListener(key);
 		waterfall.setMinimumSize(new Dimension(500,400));
 		waterfall.setSize(WIDTH, HEIGHT);
 		waterfall.add(key, BorderLayout.SOUTH);
