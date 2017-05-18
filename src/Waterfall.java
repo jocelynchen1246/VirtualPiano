@@ -18,11 +18,12 @@ import org.jfugue.theory.Note;
 public class Waterfall {
 	private ArrayList<Note> notes;
 	private String tune;
+	private Song song;
 	/** 
 	 * This constructor represents a song based on its note lengths in a waterfall format.
-	 * @param x the song used for the waterfall
 	 */
 	public Waterfall(Song x){
+		song =x;
 		notes= new ArrayList<Note>();
 		tune= x.printTune();
 		int i=0;
@@ -59,5 +60,7 @@ public class Waterfall {
 	public ArrayList<Note> getNotes(){
 		return notes;
 	}
-		 
+	public String getTitle(){
+		return song.getTitle();
+	}
 	}
