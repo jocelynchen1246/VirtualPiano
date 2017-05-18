@@ -16,64 +16,57 @@ import javax.swing.SwingConstants;
 import org.jfugue.realtime.RealtimePlayer;
 public class Main extends JFrame {
 	
-	private JFrame f;
-	private JPanel btnpnl, inst, j, keyscreen, wfscreen;
-	private JLabel info;
-	private TitleScreen game;
-	private JButton instructions, waterfall, keyboard, iback, wback, kback;
-	private CardLayout c;
-	private WaterfallScreen w;
-	private WaterfallKeyboard wk;
-	private ScoreScreen s;
-	private Keyboard k;
+	public static void main(String[] args) throws MidiUnavailableException{
+		
+		JFrame f = new JFrame("Virtual Piano");
+		CardLayout c = new CardLayout();
+		JPanel j = new JPanel();
+		Keyboard k = new Keyboard(new RealtimePlayer());
+		WaterfallKeyboard wk = new WaterfallKeyboard(new RealtimePlayer());
+		WaterfallScreen w = new WaterfallScreen();
+		JPanel wfscreen = new JPanel();
 	
-	public Main() throws MidiUnavailableException{
-		f = new JFrame("Virtual Piano");
-		c = new CardLayout();
-		j = new JPanel();
-		k = new Keyboard(new RealtimePlayer());
-		wk = new WaterfallKeyboard(new RealtimePlayer());
-		w = new WaterfallScreen();
-		wfscreen = new JPanel();
 		j.setLayout(c);
-		setBounds(100, 100, 1125, 800);
-		setLayout(new BorderLayout());
-		game = new TitleScreen();
-		add(j, BorderLayout.CENTER);
+		f.setBounds(100, 100, 1195, 800);
+		f.setLayout(new BorderLayout());
+		TitleScreen game = new TitleScreen();
+		f.add(j, BorderLayout.CENTER);
 		j.add(game, "0");
+		
 		RealtimePlayer player = new RealtimePlayer();
 		Keyboard board = new Keyboard(player);
-		setFocusTraversalKeysEnabled(false);
-	    addKeyListener(board);
-	    setResizable(true);
+		f.setFocusTraversalKeysEnabled(false);
+	    f.addKeyListener(board);
+		
+	    f.setResizable(true);
 	    
-	    instructions = new JButton("How To Play");
-	    waterfall = new JButton("Synthesia");	    
-	    keyboard = new JButton("Keyboard");
+	    JButton instructions = new JButton("How To Play");
+	    JButton waterfall = new JButton("Synthesia");	    
+	    JButton keyboard = new JButton("Keyboard");
 	    
-	    btnpnl = new JPanel();
+	   JPanel btnpnl = new JPanel();
 	    btnpnl.setLayout(new GridLayout(1,3));
 	    btnpnl.setOpaque(false);
 
 	    btnpnl.add(waterfall);
 	    btnpnl.add(instructions);
 	    btnpnl.add(keyboard);
-	    add(btnpnl, BorderLayout.SOUTH);
+	    f.add(btnpnl, BorderLayout.SOUTH);
 	    
-		inst = new JPanel();
-		inst.setSize(1125,800);
+		JPanel inst = new JPanel();
+		inst.setSize(1195,800);
 		inst.setLayout(new BorderLayout());
 		String text = "<br>How To Play <br>By: Ivy Huang, Jocelyn Chen, Natalie Tarn"
 				+ "<br>Virtual Piano<br>"
 				+ "This application stimulates a real life piano, allowing the player to play real songs <br> using the computer keyboard in two different modes, \"Keyboard\", and \"Synthesia\"."
 				+ "<br>Please refer to the README for the full piano to computer key relationship. ";
 
-		info = new JLabel("<html><div style='text-align: center;'>" + text + "</html>",SwingConstants.CENTER);
+		JLabel info = new JLabel("<html><div style='text-align: center;'>" + text + "</html>",SwingConstants.CENTER);
 		info.setFont(new Font("Dosis", 0, 15));
 		inst.add(info, BorderLayout.NORTH);
-		iback = new JButton("Back");
-		wback = new JButton("Back");
-		kback = new JButton("Back");
+		JButton iback = new JButton("Back");
+		JButton wback = new JButton("Back");
+		JButton kback = new JButton("Back");
 		
 	   instructions.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -103,12 +96,12 @@ public class Main extends JFrame {
 				// TODO Auto-generated method stub
 			//	wfscreen.setLayout(new BorderLayout());
 				w.setLayout(new BorderLayout());
+				w.add(wback, BorderLayout.WEST);
 			//	wfscreen.add(w, BorderLayout.CENTER);
 			//	wfscreen.add(wk, BorderLayout.SOUTH);
 				j.add(w, "2");
 				btnpnl.setVisible(false);
 				wback.setVisible(true);
-				w.add(wback, BorderLayout.WEST);
 				c.show(j, "2");
 			}
 			 
@@ -127,8 +120,8 @@ public class Main extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				keyscreen = new JPanel();
-				keyscreen.setSize(1125,800);
+				JPanel keyscreen = new JPanel();
+				keyscreen.setSize(1195,800);
 				keyscreen.setLayout(new BorderLayout());
 				keyscreen.add(kback, BorderLayout.SOUTH);
 				keyscreen.add(k, BorderLayout.CENTER);
@@ -148,13 +141,8 @@ public class Main extends JFrame {
 					c.show(j, "0");
 				}
 			});
-	}
-	
-	
-	public static void main(String[] args) throws MidiUnavailableException{
-		Main main = new Main();
-		main.setVisible(true);
-		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          }
 
 }
