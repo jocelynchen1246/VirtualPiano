@@ -29,8 +29,8 @@ public class Player {
 	
 	/**
 	 * This method calculates the accuracy of how accurate the player played the piano piece.
-	 * @param Waterfall x, which represents the song that the accuracy will be calculated on
-	 * @param WaterfallKeyboard keyboard the keyboard with the recorded notes that the player has played.
+	 * @param x, which represents the song that the accuracy will be calculated on
+	 * @param keyboard the keyboard with the recorded notes that the player has played.
 	 * @return score, the percentage of the accuracy
 	 */
 	public double calcScore(Waterfall x, WaterfallKeyboard keyboard){
@@ -70,7 +70,7 @@ public class Player {
 		return score/x.getNotes().size();
 	}
 	/**
-	 * @param int i, which ranks the score of a certain song
+	 * @param i, which ranks the score of a certain song
 	 * This method ranks all the player's scores in order in the score ArrayList.
 	 */
 	public void rankScore(int i){
