@@ -43,11 +43,18 @@ public class Waterfall {
 		}
 	}
 	
-	
+	/**
+	 * Return the duration of the chosen, certain note in a song
+	 * @param index the selected note
+	 * @return the duration of the selected note
+	 */
 	public double getLength(int index){
 		return notes.get(index).getDuration();
 	}
-	
+	/**
+	 * Returns the song in an ArrayList of Notes
+	 * @return an ArrayList of Notes
+	 */
 	public ArrayList<Note> getNotes(){
 		return notes;
 	}

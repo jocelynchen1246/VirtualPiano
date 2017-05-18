@@ -1,23 +1,42 @@
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.jfugue.realtime.RealtimePlayer;
 import org.jfugue.theory.Note;
-
+/**
+ * This class represents the keyboard on the WaterfallScreen, recording what the player has played to compare it with the correct song.
+ * @author Natalie Tarn
+ *
+ */
 public class WaterfallKeyboard extends Keyboard {
 	
 	
-	private Key[] keys;
-	private int[] sharpXVal;
+
 	private ArrayList<Note> recordedNotes;
-	
+	/**
+	 * This constructor creates a keyboard with two octaves.
+	 * @param player, the recording player 
+	 */
 	public WaterfallKeyboard(RealtimePlayer player) {
 		super(player);
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Draws the keyboard onto the window
+	 * @param g the Graphics component used to draw the keyboard
+	 */
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+	}
 	
 	
+	/**
+	 * Is called when a key is pressed on the keyboard.
+	 * Plays the key corresponding to the key pressed, and also adds it to the recordedNotes field.
+	 * @param e the KeyEvent representing the key that has been pressed
+	 */
 	public void keyPressed(KeyEvent e) {
 		super.keyPressed(e);
 		int key = e.getKeyCode();
@@ -123,7 +142,10 @@ public class WaterfallKeyboard extends Keyboard {
 		}
 		repaint();
 	}
-	
+	/**
+	 *  Returns the notes that the player played.
+	 * @return The recorded notes in a ArrayList
+	 */
 	public ArrayList<Note> getRecord(){
 		return recordedNotes;
 	}

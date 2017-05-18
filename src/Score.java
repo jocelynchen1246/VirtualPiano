@@ -34,18 +34,18 @@ public class Score {
 			if(correct.toString().equals(record.toString())){
 				double correctL= correct.getDuration();
 				double recordL= record.getDuration();
-				
-				if(correctL==recordL){
-					score=score+100;
-				}
-				else{
-					if(recordL>correctL){
-						score=score+100*(correctL/recordL);
-					}
-					else{
-						score=score+100*(recordL/correctL);
-					}
-				}
+				score=score+100;
+//				if(correctL==recordL){
+//					score=score+100;
+//				}
+//				else{
+//					if(recordL>correctL){
+//						score=score+100*(correctL/recordL);
+//					}
+//					else{
+//						score=score+100*(recordL/correctL);
+//					}
+//				}
 			}
 			
 		}
