@@ -60,6 +60,10 @@ public class Waterfall {
 	public ArrayList<Note> getNotes(){
 		return notes;
 	}
+	/**
+	 * Returns the title of the song that is implemented in the waterfall format.
+	 * @return the title of the song that is implemented in the waterfall format.
+	 */
 	public String getTitle(){
 		return song.getTitle();
 	}
