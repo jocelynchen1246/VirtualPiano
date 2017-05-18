@@ -20,6 +20,7 @@ public class Waterfall {
 	private String tune;
 	/** 
 	 * This constructor represents a song based on its note lengths in a waterfall format.
+	 * @param x the song used for the waterfall
 	 */
 	public Waterfall(Song x){
 		notes= new ArrayList<Note>();
