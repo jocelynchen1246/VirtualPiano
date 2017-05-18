@@ -31,7 +31,7 @@ public class WaterfallScreen extends JPanel{
 	private int count, interval;
 	private Bars bluebar, greenbar;
 	private ImageIcon blue, green;
-	
+	private double duration;
 	
 	/**
 	 * Creates a JPanel that displays the waterfall formatting of the 
@@ -40,6 +40,7 @@ public class WaterfallScreen extends JPanel{
 		super();
 		count = 0;
 		interval = 0;
+		duration = 0.0;
 		waterfall = new JPanel();
 		bluebar = new Bars("bluerect.png",70,100);
 		greenbar = new Bars("greenrect.png", 70,100);
@@ -50,7 +51,20 @@ public class WaterfallScreen extends JPanel{
 		note = new ArrayList<Note>();
 		
 		for (int i = 0; i<synth.getNotes().size(); i++){
-			synth.getLength(i);
+			duration = synth.getLength(i);
+			if(duration == 1.0){
+				bluebar = new Bars("bluerect.png", 70, 400);
+			}else if (duration == 0.5){
+				bluebar = new Bars("bluerect.png", 70,200);
+				
+			}else if (duration == 0.25){
+				bluebar = new Bars("bluerect.png", 70,100);
+			}else if (duration == 0.125){
+				bluebar = new Bars("bluerect.png", 70,50);
+			}else{
+				bluebar = new Bars("bluerect.png", 70,100);
+			}
+			
 		}
 		
 		waterfall.setMinimumSize(new Dimension(500,400));
@@ -78,10 +92,7 @@ public class WaterfallScreen extends JPanel{
 	    	count++;
 	    }
 	    
-	 /*   for(int j = 0; j<synth.getNotes().size(); j++){
-	    	
-	    }
-	    */
+	    
 	    
 	   repaint();
 	}
@@ -89,4 +100,3 @@ public class WaterfallScreen extends JPanel{
 	
 	
 	
-}
