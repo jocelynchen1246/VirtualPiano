@@ -25,7 +25,8 @@ public class WaterfallScreen extends JPanel{
 	
 	
 	/**
-	 * Creates a JPanel that displays the waterfall formatting of the 
+	 * Creates a JPanel that displays the waterfall formatting of the
+	 * @throws midi unavailable exception 
 	 */
 	public WaterfallScreen() throws MidiUnavailableException{
 		count = 0;
@@ -41,6 +42,10 @@ public class WaterfallScreen extends JPanel{
 		waterfall.setVisible(true);
 	}
 	
+	/**
+	 * Draws the waterfall screen to the window.
+	 * @g the Graphics component used to draw the screen.
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		int width = getWidth();

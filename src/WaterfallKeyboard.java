@@ -20,7 +20,7 @@ public class WaterfallKeyboard extends Keyboard {
 	 */
 	public WaterfallKeyboard(RealtimePlayer player) {
 		super(player);
-		// TODO Auto-generated constructor stub
+		recordedNotes = new ArrayList<Note>();
 	}
 	
 	/**

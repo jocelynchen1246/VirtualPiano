@@ -27,6 +27,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 	
 	/**
 	 * Creates a keyboard with two octaves.
+	 * @param player the RealtimePlayer used to play the keyboard
 	 */
 	public Keyboard(RealtimePlayer player)
 	{
@@ -136,7 +137,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 	/**
 	 * Is called when a key is pressed on the keyboard.
 	 * Plays the key corresponding to the key pressed.
-	 * @param arg0 the KeyEvent representing the key that has been pressed
+	 * @param e the KeyEvent representing the key that has been pressed
 	 */
 	public void keyPressed(KeyEvent e) {
 	
@@ -247,7 +248,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 	/**
 	 * Is called when a key that was previously pressed is released.
 	 * Stops playing the key corresponding to the key released.
-	 * @param arg0 the KeyEvent representing the key that has been released
+	 * @param e the KeyEvent representing the key that has been released
 	 */
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -281,7 +282,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 		}
 		else if(key == KeyEvent.VK_U)
 		{
-			System.out.println(keys[7].stop());
+			keys[7].stop();
 		}
 		else if(key == KeyEvent.VK_I)
 		{
@@ -363,7 +364,11 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 		
 	}
 
-	@Override
+	/**
+	 * Is called to intercept key calls before they get consumed and makes sure the tab key functions 
+	 * correctly for the keyboard.
+	 * @param e the KeyEvent intercepted
+	 */
 	public boolean dispatchKeyEvent(KeyEvent e) {
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_TAB)
