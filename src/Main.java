@@ -17,6 +17,7 @@ import org.jfugue.realtime.RealtimePlayer;
 public class Main extends JFrame {
 	
 	private JFrame f;
+	
 	private JPanel btnpnl, inst, j, keyscreen, wfscreen;
 	private JLabel info;
 	private TitleScreen game;
@@ -32,20 +33,22 @@ public class Main extends JFrame {
 		c = new CardLayout();
 		j = new JPanel();
 		k = new Keyboard(new RealtimePlayer());
-		
+		wk = new WaterfallKeyboard(new RealtimePlayer());
+		w = new WaterfallScreen();
 		wfscreen = new JPanel();
+	
 		j.setLayout(c);
-		setBounds(100, 100, 1125, 800);
+		setBounds(100, 100, 1195, 800);
 		setLayout(new BorderLayout());
 		game = new TitleScreen();
 		add(j, BorderLayout.CENTER);
 		j.add(game, "0");
+		
 		RealtimePlayer player = new RealtimePlayer();
-		wk = new WaterfallKeyboard(player);
-		w = new WaterfallScreen(player);
 		Keyboard board = new Keyboard(player);
 		setFocusTraversalKeysEnabled(false);
 	    addKeyListener(board);
+		
 	    setResizable(true);
 	    
 	    instructions = new JButton("How To Play");
@@ -62,7 +65,7 @@ public class Main extends JFrame {
 	    add(btnpnl, BorderLayout.SOUTH);
 	    
 		inst = new JPanel();
-		inst.setSize(1125,800);
+		inst.setSize(1195,800);
 		inst.setLayout(new BorderLayout());
 		String text = "<br>How To Play <br>By: Ivy Huang, Jocelyn Chen, Natalie Tarn"
 				+ "<br>Virtual Piano<br>"
@@ -104,12 +107,12 @@ public class Main extends JFrame {
 				// TODO Auto-generated method stub
 			//	wfscreen.setLayout(new BorderLayout());
 				w.setLayout(new BorderLayout());
-				w.add(wk);
+				w.add(wback, BorderLayout.WEST);
 			//	wfscreen.add(w, BorderLayout.CENTER);
+			//	wfscreen.add(wk, BorderLayout.SOUTH);
 				j.add(w, "2");
 				btnpnl.setVisible(false);
 				wback.setVisible(true);
-				w.add(wback, BorderLayout.WEST);
 				c.show(j, "2");
 			}
 			 
@@ -129,7 +132,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				keyscreen = new JPanel();
-				keyscreen.setSize(1125,800);
+				keyscreen.setSize(1195,800);
 				keyscreen.setLayout(new BorderLayout());
 				keyscreen.add(kback, BorderLayout.SOUTH);
 				keyscreen.add(k, BorderLayout.CENTER);

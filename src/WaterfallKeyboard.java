@@ -149,4 +149,5 @@ public class WaterfallKeyboard extends Keyboard {
 	public ArrayList<Note> getRecord(){
 		return recordedNotes;
 	}
+	
 }
