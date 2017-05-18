@@ -41,6 +41,9 @@ public class WaterfallScreen extends JPanel{
 		waterfall.setVisible(true);
 	}
 	
+	/**
+	 * Draws the waterfall screen to the window.
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		int width = getWidth();

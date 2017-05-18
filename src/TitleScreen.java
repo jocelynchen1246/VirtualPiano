@@ -43,6 +43,9 @@ public class TitleScreen extends JPanel {
 
 	}
 	
+	/**
+	 * Draws the title screen to the window.
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		int width = getWidth();
