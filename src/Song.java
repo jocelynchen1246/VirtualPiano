@@ -13,7 +13,7 @@ public class Song {
 	private Pattern tune=new Pattern();
 	/**
 	 * Creates a song based on the title of the song chosen.
-	 * @param name, the title of the song
+	 * @param name, the title of the song.
 	 */
 	public Song(String name){
 		
@@ -74,6 +74,15 @@ public class Song {
 				    "Eb6i C6i Bb5i A5i B5i C#6i D6i E6i F6i D6i "+
 				    "C#6i B5i C#6i D6i E6i F6i G6i E6i A5i E6i D6i "+
 				    "E6i F6i G6i F6i E6i D6i C#6i D6q A5q F5q D5q");
+			tune.add("D5q F5q A5q D6q C#6i D6i E6i F6i G6i F6i E6i"    				
+					+" D6i E6i A5i E6i G6i F6i E6i D6i C#6i B5i C#6i"    				
+					+" D6i F6i E6i D6i C#6i B5i A5i Bb5i C6i Eb6i"    				
+					+" D6i C6i Bb5i A5i G5i A5i Bb5i C6i Bb5i A5i G5i"    				
+					+" F5i E5i F5i G5i A5i G5i F5i E5i Bb5i A5i G5i"    				
+					+" F5i D6i C#6i B5i A5i G5i F5i E5i F5i A5i D6i"    				
+					+" A5i G5i A5i F5h D5h E5h F5h G5q D5q A3q C#5h"    				
+					+" D5q Eb5q E5q F5q F5q F#5h G5q G5q Ab5h A5q"    				
+					+" A5q Rq C#5h Bb5h A5h E5h D5h");
 				 
 		}
 			}
