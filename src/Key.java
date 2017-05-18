@@ -22,6 +22,7 @@ public class Key {
 		player = play;
 		note = new Note(midi);
 		isPlaying = false;
+		time = 0;
 	}
 	
 	/**
@@ -35,19 +36,22 @@ public class Key {
 			player.startNote(note);
 			isPlaying = true;
 		}
+		time++;
 	}
 	
 	/**
 	 * Stops playing the note if it is currently playing. 
 	 */
-	public double stop()
+	public int stop()
 	{
 		if(isPlaying)
 		{
 			player.stopNote(note);
 			isPlaying = false;
 		}
-		return note.getDuration();
+		int temp = time;
+		time = 0;
+		return temp;
 	}
 	
 	/**
