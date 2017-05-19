@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import org.jfugue.realtime.RealtimePlayer;
-public class Main extends JFrame {
+public class Main extends JFrame implements ActionListener{
 	
 	private JFrame f;
 	
@@ -50,7 +50,10 @@ public class Main extends JFrame {
 	    addKeyListener(board);
 		
 	    setResizable(true);
-	    
+	}
+	
+	public void initialize(){
+		
 	    instructions = new JButton("How To Play");
 	    waterfall = new JButton("Synthesia");	    
 	    keyboard = new JButton("Keyboard");
@@ -152,13 +155,21 @@ public class Main extends JFrame {
 					c.show(j, "0");
 				}
 			});
+			
 	}
 	
 	
 	public static void main(String[] args) throws MidiUnavailableException{
 		Main main = new Main();
+		main.initialize();
 		main.setVisible(true);
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+	
+	}
 
 }
