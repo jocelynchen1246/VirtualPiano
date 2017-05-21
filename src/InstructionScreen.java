@@ -29,12 +29,14 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		info.setFont(new Font("Dosis", 0, 15));
 		this.add(info, BorderLayout.NORTH);
 		iback = new JButton("Back");
+		iback.addActionListener(this);
+		add(iback);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		v.changePanel("2");
+		v.changePanel("1");
 		
 	}
 }
