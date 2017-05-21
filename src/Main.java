@@ -39,7 +39,7 @@ public class Main extends JFrame implements ActionListener{
 		wfscreen = new JPanel();
 	
 		j.setLayout(c);
-		setBounds(100, 100, 1195, 800);
+		setBounds(100, 100, 1195, 600);
 		setLayout(new BorderLayout());
 		game = new TitleScreen();
 		add(j, BorderLayout.CENTER);
