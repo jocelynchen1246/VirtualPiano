@@ -17,18 +17,16 @@ import javax.swing.JPanel;
  * This class displays the title screen of the application (what shows up when the user runs the program)
  * @author Ivy Huang
  */
-public class TitleScreen extends JPanel {
+public class TitleScreen extends JPanel implements ActionListener {
 		/*
 		 * instructions, keyboard, synthesia, 
 		 */
-	private JPanel title, btnpnl, inst;
+	
 	private JLabel info;
 	public static final int WIDTH = 1125;
 	public static final int HEIGHT = 800;
 	private Image background, id;
-	private CardLayout c;
-	private WaterfallScreen w;
-	private ScoreScreen s;
+	
 	private JButton instructions, waterfall, keyboard;
 	
 	/**
@@ -37,9 +35,15 @@ public class TitleScreen extends JPanel {
 	public TitleScreen(){
 		super();
 		//c = new CardLayout();
-		title = new JPanel();
+		
 		setMinimumSize(new Dimension(500,400));
 		setLayout(c);
+		   instructions = new JButton("How To Play");
+		    waterfall = new JButton("Synthesia");	    
+		    keyboard = new JButton("Keyboard");
+		instructions.addActionListener(this);
+		waterfall.addActionListener(this);
+		keyboard.addActionListener(this);
 
 	}
 	
@@ -61,6 +65,12 @@ public class TitleScreen extends JPanel {
 	    g.drawImage(id, WIDTH/2, HEIGHT/10, this);
 	    
 	    repaint();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
