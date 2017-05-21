@@ -156,7 +156,6 @@ public class Main extends JFrame implements ActionListener{
 					c.show(j, "0");
 				}
 			});
-			
 	}
 	
 	
@@ -170,7 +169,7 @@ public class Main extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-	
+		
 	}
 
 }
