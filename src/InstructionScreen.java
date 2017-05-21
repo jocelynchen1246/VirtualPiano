@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
  *
  */
 public class InstructionScreen extends JPanel implements ActionListener{
-	private VirtualPiano v;
+	VirtualPiano v;
 	private JLabel info;
 	private JButton iback;
 	public InstructionScreen(){
