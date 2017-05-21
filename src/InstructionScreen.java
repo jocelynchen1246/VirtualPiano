@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 /**
- * 
+ * This class represents the instruction screen for keyboard.
  * @author Natalie Tarn
  *
  */

@@ -23,7 +23,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 		 */
 	
 	private JLabel info;
-	public static final int WIDTH = 1125;
+	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 800;
 	private Image background, id;
 	
@@ -34,16 +34,19 @@ public class TitleScreen extends JPanel implements ActionListener {
 	 */
 	public TitleScreen(){
 		super();
-		//c = new CardLayout();
+
 		
 		setMinimumSize(new Dimension(500,400));
-		setLayout(c);
-		   instructions = new JButton("How To Play");
-		    waterfall = new JButton("Synthesia");	    
-		    keyboard = new JButton("Keyboard");
+		
+		instructions = new JButton("How To Play");
+		waterfall = new JButton("Synthesia");	    
+		keyboard = new JButton("Keyboard");
 		instructions.addActionListener(this);
 		waterfall.addActionListener(this);
 		keyboard.addActionListener(this);
+		add(instructions);
+		add(waterfall);
+		add(keyboard);
 
 	}
 	
@@ -69,7 +72,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
