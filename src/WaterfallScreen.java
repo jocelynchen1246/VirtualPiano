@@ -36,11 +36,12 @@ public class WaterfallScreen extends JPanel{
 	private ImageIcon blue, green;
 	private double duration;
 	private ArrayList<Shape> shape;
+	VirtualPiano v;
 	
 	/**
 	 * Creates a JPanel that displays the waterfall formatting of the 
 	 */
-	public WaterfallScreen() throws MidiUnavailableException{
+	public WaterfallScreen(VirtualPiano v) throws MidiUnavailableException{
 		super();
 		count= 0;
 		interval = 0;
@@ -52,9 +53,11 @@ public class WaterfallScreen extends JPanel{
 		shape = new ArrayList<Shape>();
 	//	wf = new JPanel();
 		waterfall.setLayout(new BorderLayout());
-		key = new WaterfallKeyboard(new RealtimePlayer());
+		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall( new Song ("Twinkle Twinkle little Star"));
 		note = new ArrayList<Note>();
+		
+		this.v = v;
 			
 		
 		

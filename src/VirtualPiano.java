@@ -28,8 +28,8 @@ public class VirtualPiano extends JFrame{
 		
 		player = new RealtimePlayer();
 		title = new TitleScreen(this);
-		waterfall = new WaterfallScreen();
-		keyboard = new Keyboard(player);
+		waterfall = new WaterfallScreen(this);
+		keyboard = new Keyboard(player, this);
 		score = new ScoreScreen();
 		instruction = new InstructionScreen(this);
 		

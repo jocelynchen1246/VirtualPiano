@@ -18,8 +18,8 @@ public class WaterfallKeyboard extends Keyboard {
 	 * This constructor creates a keyboard with two octaves.
 	 * @param player, the recording player 
 	 */
-	public WaterfallKeyboard(RealtimePlayer player) {
-		super(player);
+	public WaterfallKeyboard(RealtimePlayer player, VirtualPiano v) {
+		super(player, v);
 		recordedNotes = new ArrayList<Note>();
 	}
 	
