@@ -104,7 +104,7 @@ public class WaterfallScreen extends JPanel{
 				
 			}
 			for(int j = 0; j< synth.getNotes().size(); j++){
-				String s = (synth.getNote(i).toStringWithoutDuration());
+				String s = (synth.getNotes().get(i).toStringWithoutDuration());
 				if(s.equals("C4")){
 					bluebar.draw(g2, 75, 0, this);
 					
