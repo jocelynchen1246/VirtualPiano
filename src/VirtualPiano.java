@@ -29,11 +29,17 @@ public class VirtualPiano extends JFrame{
 		player= new Player();
 		realplayer = new RealtimePlayer();
 		title = new TitleScreen(this);
-		waterfall = new WaterfallScreen();
-		keyboard = new Keyboard(realplayer);
+
+		waterfall = new WaterfallScreen(this);
+		keyboard = new Keyboard(realplayer,this);
 		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
+
+	
+
 		instruction = new InstructionScreen(this);
 		
+		keyboard.setFocusTraversalKeysEnabled(false);
+
 		addKeyListener(keyboard);
 		
 		cardPanel = new JPanel();

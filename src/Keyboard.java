@@ -3,10 +3,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.KeyEventDispatcher;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.sound.midi.MidiDevice;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import org.jfugue.devices.MidiParserReceiver;
@@ -19,23 +22,29 @@ import org.jfugue.realtime.RealtimePlayer;
  * @author Jocelyn
  *
  */
-public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
+public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher, ActionListener{
 
 	private Key[] keys;
 	private int[] sharpXVal;
-
+	private JButton back;
+	VirtualPiano v;
 	
 	/**
 	 * Creates a keyboard with two octaves.
 	 * @param player the RealtimePlayer used to play the keyboard
 	 */
-	public Keyboard(RealtimePlayer player)
+	public Keyboard(RealtimePlayer player, VirtualPiano v)
 	{
 		super();
 		setBackground(Color.WHITE);
 		
+		this.v = v;
+		
+		back = new JButton("Back");
+		back.addActionListener(this);
+		add(back);
+		
 	    setFocusTraversalKeysEnabled(false);
-	    System.out.println(getFocusTraversalKeysEnabled());
 		keys = new Key[25];
 		keys[0] = new Key(48, player);
 		keys[1] = new Key(50, player);
@@ -373,9 +382,25 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher{
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_TAB)
 		{
-			
+			switch (e.getID())
+			{
+				case KeyEvent.KEY_PRESSED:
+					keyPressed(e);
+				case KeyEvent.KEY_RELEASED:
+					keyReleased(e);
+					
+				return true;
+			}
 		}
 		return false;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		 String change= e.getActionCommand();
+		 if(change.equals("Back")){
+			 v.changePanel("1");
+		 }
 	}
 	
 }
