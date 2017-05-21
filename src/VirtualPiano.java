@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 import org.jfugue.realtime.RealtimePlayer;
 
-public class VirtualPiano extends JFrame implements ActionListener{
+public class VirtualPiano extends JFrame{
 
 	private TitleScreen title;
 	private WaterfallScreen waterfall;
@@ -37,16 +37,26 @@ public class VirtualPiano extends JFrame implements ActionListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
+		cardPanel.add(title, "1");
+		cardPanel.add(keyboard, "2");
+		cardPanel.add(waterfall, "4");
+		cardPanel.add(score, "5");
+		
+		add(cardPanel);
+		
+		setVisible(true);
+		
 		
 	}
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public void changePanel(String name) {
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
 		requestFocus();
 	}
 
+	public static void main(String[] args) throws MidiUnavailableException
+	{
+		VirtualPiano v = new VirtualPiano("VirtualPiano");
+	}
 }
