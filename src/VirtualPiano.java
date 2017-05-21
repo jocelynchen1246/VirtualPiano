@@ -33,6 +33,8 @@ public class VirtualPiano extends JFrame{
 		score = new ScoreScreen();
 		instruction = new InstructionScreen(this);
 		
+		keyboard.setFocusTraversalKeysEnabled(false);
+
 		addKeyListener(keyboard);
 		
 		cardPanel = new JPanel();

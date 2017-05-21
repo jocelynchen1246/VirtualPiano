@@ -382,7 +382,15 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_TAB)
 		{
-			
+			switch (e.getID())
+			{
+				case KeyEvent.KEY_PRESSED:
+					keyPressed(e);
+				case KeyEvent.KEY_RELEASED:
+					keyReleased(e);
+					
+				return true;
+			}
 		}
 		return false;
 	}
