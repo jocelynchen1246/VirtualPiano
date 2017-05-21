@@ -39,7 +39,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 		setMinimumSize(new Dimension(500,400));
 		
 		instructions = new JButton("How To Play");
-		waterfall = new JButton("Synthesia");	    
+		waterfall = new JButton("Waterfall Game");	    
 		keyboard = new JButton("Keyboard");
 		instructions.addActionListener(this);
 		waterfall.addActionListener(this);

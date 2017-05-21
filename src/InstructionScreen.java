@@ -33,7 +33,10 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		add(iback);
 	}
 
-	@Override
+	
+	/**
+	 * Changes back to the titlescreen when the back button is pressed.
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		
 		v.changePanel("1");
