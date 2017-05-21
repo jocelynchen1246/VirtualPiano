@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.sound.midi.MidiUnavailableException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,10 +35,10 @@ public class TitleScreen extends JPanel implements ActionListener {
 	/**
 	 * Creates the title screen/main screen with the main menu and makes it visible to the user.
 	 */
-	public TitleScreen(){
+	public TitleScreen(VirtualPiano piano){
 		super();
 
-		
+		v=piano;
 		setMinimumSize(new Dimension(500,400));
 		
 		instructions = new JButton("How To Play");
@@ -58,7 +60,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 		super.paintComponent(g);
 		int width = getWidth();
 	    int height = getHeight();
-	    double rx = width/1125.0;
+	    double rx = width/1195.0;
 	    double ry = height/800.0;
 
 	    Graphics2D g2 = (Graphics2D)g;

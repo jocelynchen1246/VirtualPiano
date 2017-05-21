@@ -27,11 +27,11 @@ public class VirtualPiano extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		player = new RealtimePlayer();
-		title = new TitleScreen();
+		title = new TitleScreen(this);
 		waterfall = new WaterfallScreen();
 		keyboard = new Keyboard(player);
 		score = new ScoreScreen();
-		instruction = new InstructionScreen();
+		instruction = new InstructionScreen(this);
 		
 		addKeyListener(keyboard);
 		

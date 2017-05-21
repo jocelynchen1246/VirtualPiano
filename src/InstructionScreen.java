@@ -17,7 +17,8 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	VirtualPiano v;
 	private JLabel info;
 	private JButton iback;
-	public InstructionScreen(){
+	public InstructionScreen(VirtualPiano piano){
+		v=piano;
 		this.setSize(1195,800);
 		this.setLayout(new BorderLayout());
 		String text = "<br>How To Play <br>By: Ivy Huang, Jocelyn Chen, Natalie Tarn"
