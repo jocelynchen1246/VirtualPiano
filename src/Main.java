@@ -33,6 +33,7 @@ public class Main extends JFrame implements ActionListener{
 		c = new CardLayout();
 		j = new JPanel();
 		k = new Keyboard(new RealtimePlayer());
+		addKeyListener(k);
 		wk = new WaterfallKeyboard(new RealtimePlayer());
 		w = new WaterfallScreen();
 		wfscreen = new JPanel();
