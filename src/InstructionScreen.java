@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +19,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	VirtualPiano v;
 	private JLabel info;
 	private JButton iback;
+	
 	public InstructionScreen(VirtualPiano piano){
 		v=piano;
 		this.setSize(1195,800);
@@ -32,8 +35,20 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		iback = new JButton("Back");
 		iback.addActionListener(this);
 		add(iback);
+		setVisible(true);
 	}
 
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		int width = getWidth();
+	    int height = getHeight();
+	    double rx = width/1195.0;
+	    double ry = height/800.0;
+
+	    Graphics2D g2 = (Graphics2D)g;
+	    g2.scale(rx, ry);
+	    repaint();
+	}
 	
 	/**
 	 * Changes back to the titlescreen when the back button is pressed.

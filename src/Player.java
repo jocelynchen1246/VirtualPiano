@@ -1,39 +1,36 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
-import javax.sound.midi.MidiUnavailableException;
-
-import org.jfugue.devices.MusicTransmitterToSequence;
-import org.jfugue.realtime.RealtimeMidiParserListener;
-import org.jfugue.realtime.RealtimePlayer;
 import org.jfugue.theory.Note;
-import org.staccato.StaccatoParserListener;
 /**
 * This class stores all the accuracy scores that the player has for a certain song.
 * @author Natalie Tarn
 */
 public class Player {
-	private ArrayList<Double> scores;
-	private ArrayList<ArrayList<Double>> song;
+	private ArrayList<String> scoresM, scoresT, scoresB; //M=mary had, T=twinkle, B=Bach
+	private ArrayList<ArrayList<String>> song;
 	/**
-	 * This constructor creates a list of a list of scores that a player receives after playing a piece.
+	 * This constructor creates a list of a list of scores that a player will receives after playing a piece.
 	 */
 	public Player(){
-		scores= new ArrayList<Double>();
-		song=new ArrayList<ArrayList<Double>>(3);
-		song.add(scores);
-		song.add(scores);
-		song.add(scores);
+		scoresM= new ArrayList<String>();
+		scoresT= new ArrayList<String>();
+		scoresB= new ArrayList<String>();
+		song=new ArrayList<ArrayList<String>>(3);
+		song.add(scoresM);
+		song.add(scoresT);
+		song.add(scoresB);
 	}
 	
 	/**
 	 * This method calculates the accuracy of how accurate the player played the piano piece.
 	 * @param x, which represents the song that the accuracy will be calculated on
 	 * @param keyboard the keyboard with the recorded notes that the player has played.
-	 * @return score, the percentage of the accuracy
+	 * @return the percentage of the accuracy
 	 */
-	public double calcScore(Waterfall x, WaterfallKeyboard keyboard){
+	public String calcScore(Waterfall x, WaterfallKeyboard keyboard){
 		double score=0;
 		for(int i =0; i<x.getNotes().size();i++){
 			Note correct=x.getNotes().get(i);
@@ -56,18 +53,28 @@ public class Player {
 			}
 			
 		}
-		scores.add(score);
+		DecimalFormat df = new DecimalFormat("#.##");
+		df.setRoundingMode(RoundingMode.CEILING);
+		score=score/x.getNotes().size();
+		String score1=df.format(score);
+		//0=mary, 1= twinkle, 2=crab
 		if(x.getTitle().equalsIgnoreCase("Mary had a little lamb")){
-			song.set(0, scores);
+			scoresM.add(score1);
+			rankScore(0);
+			song.set(0, scoresM);
 		}
 		else if(x.getTitle().equalsIgnoreCase("Twinkle twinkle little star")){
-			song.set(1, scores);
+			scoresT.add(score1);
+			rankScore(1);
+			song.set(1, scoresT);
 		}
 		else if(x.getTitle().equalsIgnoreCase("Crab Canon")){
-			song.set(2, scores);
+			scoresB.add(score1);
+			rankScore(2);
+			song.set(2, scoresB);
 		}
 		
-		return score/x.getNotes().size();
+		return score1;
 	}
 	/**
 	 * @param i, which ranks the score of a certain song
@@ -75,5 +82,8 @@ public class Player {
 	 */
 	public void rankScore(int i){
 		Collections.sort(song.get(i));
+	}
+	public ArrayList<String> getScores(int i){
+		return song.get(i);
 	}
 }

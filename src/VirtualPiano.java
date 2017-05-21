@@ -14,7 +14,8 @@ public class VirtualPiano extends JFrame{
 	private WaterfallScreen waterfall;
 	private Keyboard keyboard;
 	private ScoreScreen score;
-	private RealtimePlayer player;
+	private RealtimePlayer realplayer;
+	private Player player;
 	private InstructionScreen instruction;
 	
 	private JPanel cardPanel;
@@ -25,12 +26,12 @@ public class VirtualPiano extends JFrame{
 		super(titl);
 		setBounds(100, 100, 1195, 800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		player = new RealtimePlayer();
+		player= new Player();
+		realplayer = new RealtimePlayer();
 		title = new TitleScreen(this);
 		waterfall = new WaterfallScreen();
-		keyboard = new Keyboard(player);
-		score = new ScoreScreen();
+		keyboard = new Keyboard(realplayer);
+		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
 		instruction = new InstructionScreen(this);
 		
 		addKeyListener(keyboard);

@@ -148,6 +148,11 @@ public class WaterfallScreen extends JPanel{
 	    repaint();
 	
 	}	
-	
+	public WaterfallKeyboard getKeyboard(){
+		return key;
+	}
+	public Waterfall getWaterfall(){
+		return synth;
+	}
 	
 }

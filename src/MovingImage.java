@@ -51,6 +51,16 @@ public class MovingImage extends Rectangle2D.Double {
 		g.drawImage(image,x,y,(int)width,(int)height,io);
 	}
 	
+	public void draw(Graphics g, ImageObserver io) {
+		
+			g.drawImage(image,(int)x,(int)y,(int)width,(int)height,io);
+	
+	}
+	public boolean isPointInImage(double mouseX, double mouseY) {
+		if (mouseX >= x && mouseY >= y && mouseX <= x + width && mouseY <= y + height)
+			return true;
+		return false;
+	}
 	
 }
 
