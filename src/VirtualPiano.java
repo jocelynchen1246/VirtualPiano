@@ -5,6 +5,10 @@ import javax.swing.JPanel;
 
 public class VirtualPiano extends JPanel implements ActionListener{
 
+	private TitleScreen title;
+	private WaterfallScreen waterfall;
+	private Keyboard keyboard;
+	private 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
