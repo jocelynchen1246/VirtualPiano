@@ -26,6 +26,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 800;
 	private Image background, id;
+	VirtualPiano v;
 	
 	private JButton instructions, waterfall, keyboard;
 	
@@ -72,7 +73,16 @@ public class TitleScreen extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
+		 String change= arg0.getActionCommand();
+		 if(change.equals("How to Play")){
+			 v.changePanel("3");
+		 }
+		 else if(change.equalsIgnoreCase("Waterfall Game")){
+			 v.changePanel("4");
+		 }
+		 else if(change.equalsIgnoreCase("Keyboard")){
+			 v.changePanel("2");
+		 }
 		
 	}
 	
