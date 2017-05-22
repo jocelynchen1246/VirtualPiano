@@ -41,15 +41,18 @@ public class TitleScreen extends JPanel implements ActionListener {
 		v=piano;
 		setMinimumSize(new Dimension(500,400));
 		
+		setLayout(new BorderLayout());
+
+		
 		instructions = new JButton("How To Play");
 		waterfall = new JButton("Waterfall Game");	    
 		keyboard = new JButton("Keyboard");
 		instructions.addActionListener(this);
 		waterfall.addActionListener(this);
 		keyboard.addActionListener(this);
-		add(instructions);
-		add(waterfall);
-		add(keyboard);
+		add(instructions,16);
+		add(waterfall, BorderLayout.SOUTH);
+		add(keyboard, 14);
 
 	}
 	
@@ -60,11 +63,11 @@ public class TitleScreen extends JPanel implements ActionListener {
 		super.paintComponent(g);
 		int width = getWidth();
 	    int height = getHeight();
-	    double rx = width/1195.0;
-	    double ry = height/800.0;
+	    double rx = width/1200.0;
+	    double ry = height/600.0;
 
 	    Graphics2D g2 = (Graphics2D)g;
-	    g2.scale(rx, ry);
+	   // g2.scale(rx, ry);
 	    id = (new ImageIcon("titleid.png")).getImage();
 	    background = (new ImageIcon("piano.jpg")).getImage();
 	    g.drawImage(background, 0, 0, null);

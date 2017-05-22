@@ -1,4 +1,5 @@
 import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -40,9 +41,10 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 		
 		this.v = v;
 		
+		setLayout(new BorderLayout());
 		back = new JButton("Back");
 		back.addActionListener(this);
-		add(back);
+		add(back, BorderLayout.SOUTH);
 		
 	    setFocusTraversalKeysEnabled(false);
 		keys = new Key[25];
@@ -97,12 +99,12 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    int width = getWidth();
 	    int height = getHeight();
 
-	    double ratioX = width/1195.0;
-	    double ratioY = height/800.0;
+	    double ratioX = width/1215.0;
+	    double ratioY = height/600.0;
 	    //multiply all X values by the x ratio and multiply all y values by the y ratio
 	    //scale method in Graphics 2D
 	    Graphics2D g2 = (Graphics2D)g;
-	    g2.scale(ratioX, ratioY);
+	  // g2.scale(ratioX, ratioY);
 	    
 	   
 	    g2.setStroke(new BasicStroke(5));
@@ -112,17 +114,17 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    	{
     			g.setColor(Color.magenta);
     			if(i < 15)
-		    		g.drawRoundRect(i*80, -10, 75, 810, 20, 20);
+		    		g.drawRoundRect(i*80, -10, 75, 555, 20, 20);
     			else
-    				g.fillRect(sharpXVal[i-15], 0, 50, 500);
+    				g.fillRect(sharpXVal[i-15], 0, 50, 350);
 	    	}
 	    	else
 	    	{
 	    		g.setColor(Color.BLACK);
 	    		if(i < 15)
-	    			g.drawRoundRect(i*80, -10, 75, 810, 20, 20);
+	    			g.drawRoundRect(i*80, -10, 75, 555, 20, 20);
 	    		else
-    				g.fillRect(sharpXVal[i-15], 0, 50, 500);
+    				g.fillRect(sharpXVal[i-15], 0, 50, 350);
 	    	}
 	    }
 	    
@@ -380,8 +382,6 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	 */
 	public boolean dispatchKeyEvent(KeyEvent e) {
 		int code = e.getKeyCode();
-		if(code == KeyEvent.VK_TAB)
-		{
 			switch (e.getID())
 			{
 				case KeyEvent.KEY_PRESSED:
@@ -391,7 +391,6 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 					
 				return true;
 			}
-		}
 		return false;
 	}
 

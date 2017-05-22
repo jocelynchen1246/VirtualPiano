@@ -56,7 +56,7 @@ public class ScoreScreen extends JPanel implements MouseListener {
 		
 		AffineTransform at = g2.getTransform();
 		
-		g2.scale(ratioX, ratioY);
+		//g2.scale(ratioX, ratioY);
 		
 		titleBack.draw(g2, this);
 		replay.draw(g2, this);

@@ -22,7 +22,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	
 	public InstructionScreen(VirtualPiano piano){
 		v=piano;
-		this.setSize(1195,800);
+		this.setSize(1200,600);
 		this.setLayout(new BorderLayout());
 		String text = "<br>How To Play <br>By: Ivy Huang, Jocelyn Chen, Natalie Tarn"
 				+ "<br>Virtual Piano<br>"
@@ -32,9 +32,10 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		info = new JLabel("<html><div style='text-align: center;'>" + text + "</html>",SwingConstants.CENTER);
 		info.setFont(new Font("Dosis", 0, 15));
 		this.add(info, BorderLayout.NORTH);
+
 		iback = new JButton("Back");
 		iback.addActionListener(this);
-		add(iback);
+		add(iback, BorderLayout.SOUTH);
 		setVisible(true);
 	}
 
@@ -43,10 +44,10 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		int width = getWidth();
 	    int height = getHeight();
 	    double rx = width/1195.0;
-	    double ry = height/800.0;
+	    double ry = height/600.0;
 
 	    Graphics2D g2 = (Graphics2D)g;
-	    g2.scale(rx, ry);
+	   // g2.scale(rx, ry);
 	    repaint();
 	}
 	

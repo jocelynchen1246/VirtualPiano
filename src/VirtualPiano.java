@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +25,7 @@ public class VirtualPiano extends JFrame{
 	public VirtualPiano(String titl) throws MidiUnavailableException
 	{
 		super(titl);
-		setBounds(100, 100, 1195, 800);
+		setBounds(100, 100, 1200, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		player= new Player();
 		realplayer = new RealtimePlayer();
@@ -33,8 +34,6 @@ public class VirtualPiano extends JFrame{
 		waterfall = new WaterfallScreen(this);
 		keyboard = new Keyboard(realplayer,this);
 		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
-
-	
 
 		instruction = new InstructionScreen(this);
 		
@@ -55,6 +54,7 @@ public class VirtualPiano extends JFrame{
 		add(cardPanel);
 		
 		setVisible(true);
+		setResizable(false);
 		
 		
 	}
