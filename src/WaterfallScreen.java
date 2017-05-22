@@ -53,7 +53,7 @@ public class WaterfallScreen extends JPanel{
 	//	wf = new JPanel();
 		setLayout(new BorderLayout());
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
-		synth = new Waterfall( new Song ("Twinkle Twinkle little Star"));
+		synth = new Waterfall(x);
 		bluebar = new Bars(75,0,1.0,synth,"0");
 		greenbar = new Bars(0,0,0.0,synth,"0");
 		this.v = v;
