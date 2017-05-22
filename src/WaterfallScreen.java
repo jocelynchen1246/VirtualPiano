@@ -38,10 +38,11 @@ public class WaterfallScreen extends JPanel{
 	private ArrayList<Bars> b;
 	VirtualPiano v;
 	
+	
 	/**
 	 * Creates a JPanel that displays the waterfall formatting of the 
 	 */
-	public WaterfallScreen(VirtualPiano v) throws MidiUnavailableException{
+	public WaterfallScreen(VirtualPiano v, Song x) throws MidiUnavailableException{
 		count= 0;
 		barpos = 0;
 		interval = 0;

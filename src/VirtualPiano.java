@@ -32,7 +32,7 @@ public class VirtualPiano extends JFrame{
 		realplayer = new RealtimePlayer();
 		title = new TitleScreen(this);
 		choose= new SongScreen(this);
-		waterfall = new WaterfallScreen(this);
+		
 		keyboard = new Keyboard(realplayer,this);
 		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
 
@@ -49,9 +49,9 @@ public class VirtualPiano extends JFrame{
 		cardPanel.add(title, "1");
 		cardPanel.add(keyboard, "2");
 		cardPanel.add(instruction, "3");
-		cardPanel.add(waterfall, "4");
+		
 		cardPanel.add(score, "5");
-		cardPanel.add(choose,"6");
+		cardPanel.add(choose,"4");
 		
 		add(cardPanel);
 		
@@ -70,5 +70,8 @@ public class VirtualPiano extends JFrame{
 	public static void main(String[] args) throws MidiUnavailableException
 	{
 		VirtualPiano v = new VirtualPiano("VirtualPiano");
+	}
+	public JPanel getPanels(){
+		return cardPanel;
 	}
 }

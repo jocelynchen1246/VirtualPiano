@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.sound.midi.MidiUnavailableException;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -36,24 +37,46 @@ public class SongScreen extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		WaterfallScreen waterfall = null;
 		 String change= arg0.getActionCommand();
 		 if(change.equalsIgnoreCase("Bach Crab Canon")){
 			 chosen=new Song("Bach Crab Canon");
+			 
+			try {
+				waterfall = new WaterfallScreen(v, chosen);
+			} catch (MidiUnavailableException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 v.getPanels().add(waterfall, "6");
 			 v.changePanel("6");
 		 }
 		 else if(change.equalsIgnoreCase("Twinkle Twinkle Little Star")){
 			 chosen=new Song("Twinkle Twinkle Little Star");
-			 v.changePanel("6");
+			 try {
+					waterfall = new WaterfallScreen(v, chosen);
+				} catch (MidiUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 v.getPanels().add(waterfall, "6");
+				 v.changePanel("6"); 
+			 
 		 }
 		 else if(change.equalsIgnoreCase("Mary had a little lamb")){
 			 chosen=new Song("Mary had a little lamb");
-			 v.changePanel("6");
+			 try {
+					waterfall = new WaterfallScreen(v, chosen);
+				} catch (MidiUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 v.getPanels().add(waterfall, "6");
+				v.changePanel("6");
 		 }
 		
 	}
-	public Song getChosen(){
-		return chosen;
-	}
+
 
 
 }
