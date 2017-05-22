@@ -32,39 +32,41 @@ public class WaterfallScreen extends JPanel{
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 800;
 	private int count, interval, notenum;
+	private double barpos;
 	private Bars bluebar, greenbar;
-	private ImageIcon blue, green;
 	private double duration;
-	private ArrayList<Shape> shape;
+	private ArrayList<Bars> b;
 	VirtualPiano v;
 	
 	/**
 	 * Creates a JPanel that displays the waterfall formatting of the 
 	 */
 	public WaterfallScreen(VirtualPiano v) throws MidiUnavailableException{
-		super();
 		count= 0;
+		barpos = 0;
 		interval = 0;
 		notenum = 0;
 		duration = 0.0;
 		waterfall = new JPanel();
 		bluebar = new Bars("bluerect.png",70,100);
 		greenbar = new Bars("greenrect.png", 70,100);
-		shape = new ArrayList<Shape>();
+		b = new ArrayList<Bars>();
 	//	wf = new JPanel();
-		waterfall.setLayout(new BorderLayout());
+		setLayout(new BorderLayout());
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall( new Song ("Twinkle Twinkle little Star"));
 		note = new ArrayList<Note>();
 		
+		
 		this.v = v;
-			
-		
-		
-		waterfall.setMinimumSize(new Dimension(500,400));
-		this.setSize(WIDTH, HEIGHT);
-		this.add(key, BorderLayout.SOUTH);
-		this.setVisible(true);
+
+		setMinimumSize(new Dimension(500,400));
+		setSize(WIDTH, HEIGHT);
+		add(key, BorderLayout.SOUTH); 
+		int g = 0;
+		g = key.getHeight()/2;
+
+		setVisible(true);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -79,18 +81,17 @@ public class WaterfallScreen extends JPanel{
 	    
 	    //not showing after resize
 	    
-	   /* g2.setStroke(new BasicStroke(3));
+	    g2.setStroke(new BasicStroke(3));
 	    for(int i = 0; i<15 ; i++){
-	    	g.drawRoundRect(75+(interval*count),0, 70, 650, 20, 20);
+	    	g.drawRect(75+(interval*count),0, 70, 650);
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
-	    */
 	    
 	    for (int i = 0; i<synth.getNotes().size(); i++){
 			duration = synth.getLength(i);
 			if(duration == 1.0){
-				bluebar = new Bars("bluerect.png", 70, 400);
+				bluebar = new Bars("bluerect.png", 70,400);
 				greenbar = new Bars("greenrect.png", 70, 400);
 			}else if (duration == 0.5){
 				bluebar = new Bars("bluerect.png", 70,200);
@@ -106,8 +107,10 @@ public class WaterfallScreen extends JPanel{
 				greenbar = new Bars("greenrect.png", 70, 100);
 				
 			}
+			
+	    long startTime = System.currentTimeMillis();
 			for(int j = 0; j< synth.getNotes().size(); j++){
-				String s = (synth.getNotes().get(i).toStringWithoutDuration());
+				String s = (synth.getNotes().get(j).toStringWithoutDuration());
 				if(s.equals("C4")){
 					bluebar.draw(g2, 75, 0, this);
 					
@@ -141,14 +144,10 @@ public class WaterfallScreen extends JPanel{
 				else if(s.equals("C6")){
 					bluebar.draw(g2, 75*15, 0, this);
 				}
-				while(bluebar.getY()<key.getY()){
-					double y =bluebar.getY();
-					y+=5;
-				}
-		
+				bluebar.update();
 			}
-	}
-	    repaint();
+	    }
+			repaint();  
 	
 	}	
 	public WaterfallKeyboard getKeyboard(){

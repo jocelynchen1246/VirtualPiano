@@ -19,9 +19,8 @@ public class Bars extends MovingImage {
 	}
 	
 
-	public void fall() {
+	public void update() {
 		yvel += 0.7;
 		super.y+=yvel;
 	}
-
 }
