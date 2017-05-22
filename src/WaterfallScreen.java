@@ -48,21 +48,20 @@ public class WaterfallScreen extends JPanel{
 		notenum = 0;
 		duration = 0.0;
 		waterfall = new JPanel();
-		bluebar = new Bars("bluerect.png",70,100);
-		greenbar = new Bars("greenrect.png", 70,100);
 		b = new ArrayList<Bars>();
 	//	wf = new JPanel();
 		setLayout(new BorderLayout());
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall( new Song ("Twinkle Twinkle little Star"));
-		note = new ArrayList<Note>();
-		
-		
+		bluebar = new Bars(75,0,1.0,synth,"0");
+		greenbar = new Bars(0,0,0.0,synth,"0");
 		this.v = v;
 
 		setMinimumSize(new Dimension(500,400));
 		setSize(WIDTH, HEIGHT);
+		key.setBounds(75, 600, 725, 50 );
 		add(key, BorderLayout.SOUTH); 
+
 		int g = 0;
 		g = key.getHeight()/2;
 
@@ -83,70 +82,78 @@ public class WaterfallScreen extends JPanel{
 	    
 	    g2.setStroke(new BasicStroke(3));
 	    for(int i = 0; i<15 ; i++){
-	    	g.drawRect(75+(interval*count),0, 70, 650);
+	    	g2.drawRect(75+(interval*count),0, 70, 650);
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
 	    
 	    for (int i = 0; i<synth.getNotes().size(); i++){
+	    	bluebar.getHeight(synth, i);
+	    	bluebar.setX(synth, i);
+	    	bluebar.draw(g2, this);
+	    	bluebar.update();
+	    }
+	/*    for (int i = 0; i<synth.getNotes().size(); i++){
 			duration = synth.getLength(i);
 			if(duration == 1.0){
-				bluebar = new Bars("bluerect.png", 70,400);
-				greenbar = new Bars("greenrect.png", 70, 400);
+				bluebar = new Bars("bluerect.png",70,400, duration,);
+				greenbar = new Bars("greenrect.png", 70, 400,duration,);
 			}else if (duration == 0.5){
-				bluebar = new Bars("bluerect.png", 70,200);
-				greenbar = new Bars("greenrect.png", 70, 200);
+				bluebar = new Bars("bluerect.png",70,200,duration,);
+				greenbar = new Bars("greenrect.png", 70, 200,duration,);
 			}else if (duration == 0.25){
-				bluebar = new Bars("bluerect.png", 70,100);
-				greenbar = new Bars("greenrect.png", 70, 100);
+				bluebar = new Bars("bluerect.png",70,100,duration,);
+				greenbar = new Bars("greenrect.png", 70, 100,duration,);
 			}else if (duration == 0.125){
-				bluebar = new Bars("bluerect.png", 70,50);
-				greenbar = new Bars("greenrect.png", 70, 50);
+				bluebar = new Bars("bluerect.png",70,50,duration,);
+				greenbar = new Bars("greenrect.png", 70, 50,duration,);
 			}else{
-				bluebar = new Bars("bluerect.png", 70,100);
-				greenbar = new Bars("greenrect.png", 70, 100);
+				bluebar = new Bars("bluerect.png",70,100, duration,);
+				greenbar = new Bars("greenrect.png", 70, 100,duration,);
 				
 			}
 			
-	    long startTime = System.currentTimeMillis();
+	    //long startTime = System.currentTimeMillis();
 			for(int j = 0; j< synth.getNotes().size(); j++){
 				String s = (synth.getNotes().get(j).toStringWithoutDuration());
 				if(s.equals("C4")){
-					bluebar.draw(g2, 75, 0, this);
+					b.get(i).draw(g2,this);
 					
 				}else if(s.equals("D4")){
-					bluebar.draw(g2, 75*2, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("E4")){
-					bluebar.draw(g2, 75*3, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("F4")){
-					bluebar.draw(g2, 75*4, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("G4")){
-					bluebar.draw(g2, 75*5, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("A4")){
-					bluebar.draw(g2, 75*6, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("B4")){
-					bluebar.draw(g2, 75*7, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("C5")){
-					bluebar.draw(g2, 75*8, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("D5")){
-					bluebar.draw(g2, 75*9, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("E5")){
-					bluebar.draw(g2, 75*10, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("F5")){
-					bluebar.draw(g2, 75*11, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("G5")){
-					bluebar.draw(g2, 75*12, 0, this);
+					bluebar.draw(g2, this);
 				}else if(s.equals("A5")){
-					bluebar.draw(g2, 75*13, 0, this);
+					bluebar.draw(g2,this);
 				}else if(s.equals("B5")){
-					bluebar.draw(g2, 75*14, 0, this);
+					bluebar.draw(g2,this);
 				}
 				else if(s.equals("C6")){
-					bluebar.draw(g2, 75*15, 0, this);
+					bluebar.draw(g2,this);
 				}
 				bluebar.update();
+			
 			}
 	    }
+	    */
 			repaint();  
 	
 	}	
