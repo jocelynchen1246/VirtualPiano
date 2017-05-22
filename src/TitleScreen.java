@@ -76,7 +76,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		 String change= arg0.getActionCommand();
-		 if(change.equals("How to Play")){
+		 if(change.equalsIgnoreCase("How to Play")){
 			 v.changePanel("3");
 		 }
 		 else if(change.equalsIgnoreCase("Waterfall Game")){

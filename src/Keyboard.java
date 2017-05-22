@@ -98,7 +98,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    int height = getHeight();
 
 	    double ratioX = width/1195.0;
-	    double ratioY = height/400.0;
+	    double ratioY = height/800.0;
 	    //multiply all X values by the x ratio and multiply all y values by the y ratio
 	    //scale method in Graphics 2D
 	    Graphics2D g2 = (Graphics2D)g;
@@ -112,17 +112,17 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    	{
     			g.setColor(Color.magenta);
     			if(i < 15)
-		    		g.drawRoundRect(i*80, -10, 75, 410, 20, 20);
+		    		g.drawRoundRect(i*80, -10, 75, 810, 20, 20);
     			else
-    				g.fillRect(sharpXVal[i-15], 0, 50, 250);
+    				g.fillRect(sharpXVal[i-15], 0, 50, 500);
 	    	}
 	    	else
 	    	{
 	    		g.setColor(Color.BLACK);
 	    		if(i < 15)
-	    			g.drawRoundRect(i*80, -10, 75, 410, 20, 20);
+	    			g.drawRoundRect(i*80, -10, 75, 810, 20, 20);
 	    		else
-    				g.fillRect(sharpXVal[i-15], 0, 50, 250);
+    				g.fillRect(sharpXVal[i-15], 0, 50, 500);
 	    	}
 	    }
 	    
