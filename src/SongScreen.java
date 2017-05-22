@@ -23,7 +23,7 @@ public class SongScreen extends JPanel implements ActionListener {
 	public SongScreen(VirtualPiano v){
 		this.v=v;
 		this.setSize(1195,800);
-		crab=new JButton("Crab Canon");
+		crab=new JButton("Bach Crab Canon");
 		twinkle =new JButton ("Twinkle Twinkle Little Star");
 		mary= new JButton("Mary had a little lamb");
 		crab.addActionListener(this);
@@ -37,8 +37,8 @@ public class SongScreen extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		 String change= arg0.getActionCommand();
-		 if(change.equalsIgnoreCase("Crab Canon")){
-			 chosen=new Song("Crab Canon");
+		 if(change.equalsIgnoreCase("Bach Crab Canon")){
+			 chosen=new Song("Bach Crab Canon");
 			 v.changePanel("6");
 		 }
 		 else if(change.equalsIgnoreCase("Twinkle Twinkle Little Star")){
