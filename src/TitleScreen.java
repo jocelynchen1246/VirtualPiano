@@ -25,6 +25,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 		 */
 	
 	private JLabel info;
+	private JPanel btnpnl;
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 800;
 	private Image background, id;
@@ -42,7 +43,8 @@ public class TitleScreen extends JPanel implements ActionListener {
 		setMinimumSize(new Dimension(500,400));
 		
 		setLayout(new BorderLayout());
-
+		btnpnl = new JPanel();
+		btnpnl.setLayout(new GridLayout(1,3));
 		
 		instructions = new JButton("How To Play");
 		waterfall = new JButton("Waterfall Game");	    
@@ -51,9 +53,10 @@ public class TitleScreen extends JPanel implements ActionListener {
 		waterfall.addActionListener(this);
 		keyboard.addActionListener(this);
 		
-		add(instructions);
-		add(waterfall, BorderLayout.SOUTH);
-		add(keyboard);
+		btnpnl.add(instructions);
+		btnpnl.add(waterfall);
+		btnpnl.add(keyboard);
+		add(btnpnl, BorderLayout.SOUTH);
 
 	}
 	
