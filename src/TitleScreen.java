@@ -83,7 +83,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 			 v.changePanel("3");
 		 }
 		 else if(change.equalsIgnoreCase("Waterfall Game")){
-			 v.changePanel("4");
+			 v.changePanel("6");
 		 }
 		 else if(change.equalsIgnoreCase("Keyboard")){
 			 v.changePanel("2");

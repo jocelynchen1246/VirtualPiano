@@ -12,6 +12,7 @@ import org.jfugue.realtime.RealtimePlayer;
 public class VirtualPiano extends JFrame{
 
 	private TitleScreen title;
+	private SongScreen choose;
 	private WaterfallScreen waterfall;
 	private Keyboard keyboard;
 	private ScoreScreen score;
@@ -30,7 +31,7 @@ public class VirtualPiano extends JFrame{
 		player= new Player();
 		realplayer = new RealtimePlayer();
 		title = new TitleScreen(this);
-
+		choose= new SongScreen(this);
 		waterfall = new WaterfallScreen(this);
 		keyboard = new Keyboard(realplayer,this);
 		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
@@ -50,6 +51,7 @@ public class VirtualPiano extends JFrame{
 		cardPanel.add(instruction, "3");
 		cardPanel.add(waterfall, "4");
 		cardPanel.add(score, "5");
+		cardPanel.add(choose,"6");
 		
 		add(cardPanel);
 		
