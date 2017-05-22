@@ -34,7 +34,7 @@ public class VirtualPiano extends JFrame{
 		choose= new SongScreen(this);
 		
 		keyboard = new Keyboard(realplayer,this);
-		score = new ScoreScreen(this,player, waterfall.getWaterfall(), waterfall.getKeyboard());
+		
 
 		instruction = new InstructionScreen(this);
 		
@@ -50,7 +50,7 @@ public class VirtualPiano extends JFrame{
 		cardPanel.add(keyboard, "2");
 		cardPanel.add(instruction, "3");
 		
-		cardPanel.add(score, "5");
+	
 		cardPanel.add(choose,"4");
 		
 		add(cardPanel);

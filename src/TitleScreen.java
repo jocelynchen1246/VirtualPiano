@@ -50,9 +50,10 @@ public class TitleScreen extends JPanel implements ActionListener {
 		instructions.addActionListener(this);
 		waterfall.addActionListener(this);
 		keyboard.addActionListener(this);
-		add(instructions,16);
+		
+		add(instructions);
 		add(waterfall, BorderLayout.SOUTH);
-		add(keyboard, 14);
+		add(keyboard);
 
 	}
 	
@@ -83,7 +84,7 @@ public class TitleScreen extends JPanel implements ActionListener {
 			 v.changePanel("3");
 		 }
 		 else if(change.equalsIgnoreCase("Waterfall Game")){
-			 v.changePanel("6");
+			 v.changePanel("4");
 		 }
 		 else if(change.equalsIgnoreCase("Keyboard")){
 			 v.changePanel("2");
