@@ -80,6 +80,10 @@ public class SongScreen extends JPanel implements ActionListener {
 				 v.getPanels().add(waterfall, "6");
 				v.changePanel("6");
 		 }
+		 else if(change.equalsIgnoreCase("Back"))
+		 {
+			 v.changePanel("1");
+		 }
 		
 	}
 
