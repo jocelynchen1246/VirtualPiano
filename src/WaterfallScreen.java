@@ -32,7 +32,7 @@ public class WaterfallScreen extends JPanel{
 	private Waterfall synth;
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 600;
-	private int count, interval, notenum, currenty;
+	private int count, interval, notenum;
 	private double barpos;
 	private Bars bluebar, greenbar;
 	private double duration;
@@ -52,7 +52,6 @@ public class WaterfallScreen extends JPanel{
 		barpos = 0;
 		interval = 0;
 		duration = 0.0;
-		currenty = 0;
 	//	waterfall = new JPanel();
 		b = new ArrayList<Bars>(); 
 	
@@ -61,9 +60,6 @@ public class WaterfallScreen extends JPanel{
 		synth = new Waterfall(x);
 		bluebar = new Bars("bluerect.png",0,-200,0.0,synth,"0");
 		greenbar = new Bars("greenrect.png",0,0,0.0,synth,"0");
-		bluebar.getHeight(synth, 0);
-		bluebar.setX(synth, 0);
-		b.add(bluebar);
 		notenum = synth.getNotes().size();
 		this.v = v;
 		add(wf2);
@@ -96,6 +92,7 @@ public class WaterfallScreen extends JPanel{
 	    }
 	    for(int j = 0; j< synth.getNotes().size();j++){
 	    	run();
+	    	b.get(j).update();
 	    	b.get(j).draw(g2, this);
 	    }
 	    
@@ -117,11 +114,7 @@ public class WaterfallScreen extends JPanel{
 		for (int k = 0; k<synth.getNotes().size(); k++){
 		bluebar.getHeight(synth, k);
     	bluebar.setX(synth, k);
-    	if(bluebar.getY()==0){
-    		b.add(bluebar);
-    	}
-    	b.get(k).update();
-
+    	b.add(bluebar);
 	}
 		repaint();
 	}
