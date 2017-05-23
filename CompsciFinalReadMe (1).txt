@@ -2,16 +2,14 @@
 05-06-17
 
 
-PianoSimulator
+VirtualPiano
 
 
 Introduction:
-The user will use various keys on the computer keyboard in order to play a piece of music on a virtual piano.  The notes will be shown in a waterfall (colored rectangles fall from the top of the screen down and eventually line up with keys on the keyboard located below, indicating to the player which notes are to be played) format, and the player presses the corresponding “keys” on the computer. A final accuracy percentage/score will be shown after the piece ends.  The program utilizes Jfugue and its components for functionality/usage. JFugue allows for notes to be played out loud, and also has  built in RealTime Player (used for the virtual keyboard) that reads what the player types to play the notes.
+The user will use various keys on the computer keyboard in order to play a piece of music on a virtual piano.  The notes will be shown in a waterfall (colored rectangles fall from the top of the screen down and eventually line up with keys on the keyboard located below, indicating to the player which notes are to be played) format, and the player presses the corresponding “keys” on the computer. As each rectangular bar falls onto the green outlined area, the player presses the corresponding key on the computer. A final accuracy percentage/score will be shown after the piece ends.  The program utilizes Jfugue and its components for functionality/usage. JFugue allows for notes to be played out loud, and also has  built in RealTime Player (used for the virtual keyboard) that reads what the player types to play the notes.
 
 
 Instructions
-
-
 Lower C: ~
 C#/Db: 1
 D: q
@@ -90,7 +88,7 @@ Classes:
 
 Roles:
 Ivy: Keyboard graphics, sheet music functioning/scrolling, main menu/displays
-         -Bars  TitleScreen, WaterfallScreen
+         -Bars, TitleScreen, WaterfallScreen
 
 
 Jocelyn: Jfugue functioning (piano keyboard with computer keyboard)
