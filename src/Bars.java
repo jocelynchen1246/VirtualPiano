@@ -42,44 +42,49 @@ public class Bars{
 		
 	}
 	
-	public int getHeight(Waterfall w, int x){
+	public int setHeight(Waterfall w, int x){
 		double j = w.getLength(x);
-		return (int)(j*200);
+		height = (int)(j*200);
+		return height;
 		
 	}
 	
+	public void setY(double y)
+	{
+		this.y = y;
+	}
 	public void setX(Waterfall w, int i){
 		
 		String s = (w.getNotes().get(i).toStringWithoutDuration());
-		x = (1195/15) -10;
-		if(s.equals("C4")){
-			x = 1195/15;
-		}else if(s.equals("D4")){
+		x = 80;
+		if(s.equals("C3")){
+			x = x*0;
+		}else if(s.equals("D3")){
+			x =  x*1;
+		}else if(s.equals("E3")){
 			x =  x*2;
-		}else if(s.equals("E4")){
+		}else if(s.equals("F3")){
 			x =  x*3;
-		}else if(s.equals("F4")){
+		}else if(s.equals("G3")){
 			x =  x*4;
-		}else if(s.equals("G4")){
+		}else if(s.equals("A3")){
 			x =  x*5;
-		}else if(s.equals("A4")){
+		}else if(s.equals("B3")){
 			x =  x*6;
-		}else if(s.equals("B4")){
+		}else if(s.equals("C4")){
 			x =  x*7;
-		}else if(s.equals("C5")){
+		}else if(s.equals("D4")){
 			x =  x*8;
-		}else if(s.equals("D5")){
+		}else if(s.equals("E4")){
 			x =  x*9;
-		}else if(s.equals("E5")){
+		}else if(s.equals("F4")){
 			x =  x*10;
-		}else if(s.equals("F5")){
+		}else if(s.equals("G4")){
 			x =  x*11;
-		}else if(s.equals("G5")){
+		}else if(s.equals("A4")){
 			x =  x*12;
-		}else if(s.equals("A5")){
+		}else if(s.equals("B4")){
 			x =  x*13;
-		}else if(s.equals("B5")){
-			x =  x*14;
 		}
 		else if(s.equals("C6")){
 			x =  x*15;
@@ -91,7 +96,7 @@ public class Bars{
 	
 	public void update() {
 	//	yvel += 0.7;
-		y+=0.01;
+		y+=0.5;
 	}
 	
 	public int getX(){
@@ -101,7 +106,7 @@ public class Bars{
 		return y;
 	}
 	public void draw(Graphics g, ImageObserver io){
-		g.drawImage(img, x, (int)y, io); 
+		g.drawImage(img, x, (int)y, 80, height, io); 
 		
 	}
 	

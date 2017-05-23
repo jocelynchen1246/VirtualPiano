@@ -38,6 +38,7 @@ public class WaterfallScreen extends JPanel{
 	private double duration;
 	private ArrayList<Bars> b;
 	VirtualPiano v;
+	private int index;
 	
 	
 	/**
@@ -54,13 +55,20 @@ public class WaterfallScreen extends JPanel{
 		duration = 0.0;
 	//	waterfall = new JPanel();
 		b = new ArrayList<Bars>(); 
-	
+		index = 0;
+		
 		setLayout(new GridLayout(3,1));
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall(x);
 		bluebar = new Bars("bluerect.png",0,-200,0.0,synth,"0");
 		greenbar = new Bars("greenrect.png",0,0,0.0,synth,"0");
 		notenum = synth.getNotes().size();
+		//b.add(bluebar);
+		Bars r = new Bars("bluerect.png",0,0,0,synth,"0");
+		r.setX(synth, index);
+		int h = r.setHeight(synth, index);
+		r.setY(-h);
+		b.add(r);
 		this.v = v;
 		add(wf2);
 		add(wf1);
@@ -84,12 +92,15 @@ public class WaterfallScreen extends JPanel{
 	    
 	    
 	    g2.setStroke(new BasicStroke(3));
+	    /*
 	    for(int i = 0; i<15 ; i++){
 	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20)
 	    	;
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
+	    */
+	    /*
 	    	for (int k = 0; k<synth.getNotes().size(); k++){
 	    		bluebar.getHeight(synth, k);
 	        	bluebar.setX(synth, k);
@@ -97,9 +108,10 @@ public class WaterfallScreen extends JPanel{
 	        	b.get(k).update();
 		    	b.get(k).draw(g2, this);
 	    	}
-	    	repaint();  
-	    }
+	    	repaint(); 
 	    
+	    }
+	    	*/ 
 	/*    for (int k = 0; k<synth.getNotes().size(); k++){
 	    	bluebar.getHeight(synth, k);
 	    	bluebar.setX(synth, k);
@@ -109,15 +121,36 @@ public class WaterfallScreen extends JPanel{
 	    	b.get(k).draw(g, this);
 	    }
 	    */ 
-
+	    for(int i = 0; i <= index; i++)
+	    {
+	    	b.get(i).draw(g, this);
+	    }
+	    run();
+	}
 			
 	
 	public void run(){
+		/*
 		for (int k = 0; k<synth.getNotes().size(); k++){
 		bluebar.getHeight(synth, k);
     	bluebar.setX(synth, k);
     	b.add(bluebar);
-	}
+    	*/
+		for(int k = 0; k <= index; k++)
+		{
+			b.get(k).update();
+		}
+		if(index < synth.getNotes().size()-1 && Math.abs(b.get(index).getY()) < 0.00001)
+		{
+			Bars x = new Bars("bluerect.png",0,0,0,synth,"0");
+			x.setX(synth, index+1);
+			int h = x.setHeight(synth, index+1);
+			x.setY(-h);
+
+			
+			b.add(x);
+			index++;
+		}
 		repaint();
 	}
 	
