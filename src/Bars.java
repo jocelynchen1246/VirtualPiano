@@ -90,8 +90,8 @@ public class Bars{
 	}
 	
 	public void update() {
-		yvel += 0.7;
-		y+=yvel;
+	//	yvel += 0.7;
+		y+=5;
 	}
 	
 	public void draw(Graphics g, ImageObserver io){
