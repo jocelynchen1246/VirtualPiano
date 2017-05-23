@@ -24,7 +24,6 @@ public class Bars{
 //	private ArrayList<String> note;
 	
 	public Bars(String name, int x, int y, double d, Waterfall w, String s) {
-		//super(name, x, y, WIDTH, HEIGHT);
 		synth = w;
 		filename = name;
 		try {
@@ -35,7 +34,7 @@ public class Bars{
 		}
 		this.x = x;
 		this.y = y;
-	//	name = filename;
+		name = filename;
 		yvel = 0;
 		xvel = 0;
 		height= (int)(d*200);
@@ -94,6 +93,12 @@ public class Bars{
 		y+=5;
 	}
 	
+	public int getX(){
+		return x;
+	}
+	public int getY(){
+		return y;
+	}
 	public void draw(Graphics g, ImageObserver io){
 		g.drawImage(img, x, y, io); 
 		

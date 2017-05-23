@@ -29,7 +29,6 @@ public class WaterfallScreen extends JPanel{
 
 	private JPanel waterfall, wf1, wf2;
 	private WaterfallKeyboard key;
-	private ArrayList<Note> note;
 	private Waterfall synth;
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 600;
@@ -69,7 +68,7 @@ public class WaterfallScreen extends JPanel{
 
 		int g = 0;
 		g = key.getHeight()/2;
-
+		
 		setVisible(true);
 	}
 
@@ -86,96 +85,26 @@ public class WaterfallScreen extends JPanel{
 	    
 	    g2.setStroke(new BasicStroke(3));
 	    for(int i = 0; i<15 ; i++){
-	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20);
+	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20)
+	    	;
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
-	    draw(g, this);
-	  /*  for (int k = 0; k<synth.getNotes().size(); k++){
+	    
+	    for (int k = 0; k<synth.getNotes().size(); k++){
 	    	bluebar.getHeight(synth, k);
 	    	bluebar.setX(synth, k);
 	    	b.add(bluebar);
+	    	for(int l = 0; l<synth.getNotes().size(); l++){
+	    		notenum += synth.getLength(l);
+	    		
+	    	}
+	    	
+	    	
+	    	b.get(k).draw(g, this);
 	    }
-	    */
-	    
-	  //  while(notenum>0){
-	    
-	//    }
-	//    System.out.println(b.size());
-	    
-	/*    for (int i = 0; i<synth.getNotes().size(); i++){
-			duration = synth.getLength(i);
-			if(duration == 1.0){
-				bluebar = new Bars("bluerect.png",70,400, duration,);
-				greenbar = new Bars("greenrect.png", 70, 400,duration,);
-			}else if (duration == 0.5){
-				bluebar = new Bars("bluerect.png",70,200,duration,);
-				greenbar = new Bars("greenrect.png", 70, 200,duration,);
-			}else if (duration == 0.25){
-				bluebar = new Bars("bluerect.png",70,100,duration,);
-				greenbar = new Bars("greenrect.png", 70, 100,duration,);
-			}else if (duration == 0.125){
-				bluebar = new Bars("bluerect.png",70,50,duration,);
-				greenbar = new Bars("greenrect.png", 70, 50,duration,);
-			}else{
-				bluebar = new Bars("bluerect.png",70,100, duration,);
-				greenbar = new Bars("greenrect.png", 70, 100,duration,);
-				
-			}
-			
-	    //long startTime = System.currentTimeMillis();
-			for(int j = 0; j< synth.getNotes().size(); j++){
-				String s = (synth.getNotes().get(j).toStringWithoutDuration());
-				if(s.equals("C4")){
-					b.get(i).draw(g2,this);
-					
-				}else if(s.equals("D4")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("E4")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("F4")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("G4")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("A4")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("B4")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("C5")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("D5")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("E5")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("F5")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("G5")){
-					bluebar.draw(g2, this);
-				}else if(s.equals("A5")){
-					bluebar.draw(g2,this);
-				}else if(s.equals("B5")){
-					bluebar.draw(g2,this);
-				}
-				else if(s.equals("C6")){
-					bluebar.draw(g2,this);
-				}
-				bluebar.update();
-			
-			}
-	    }
-	    */
 			repaint();  
-	
-	}	
-	
-	public void draw(Graphics g, ImageObserver io){
-		for (int k = 0; k<synth.getNotes().size(); k++){
-	    	bluebar.getHeight(synth, k);
-	    	bluebar.setX(synth, k);
-	    	b.add(bluebar);
-	    }
-		System.out.println(b.size());
-	    
+
 	}
 	public WaterfallKeyboard getKeyboard(){
 		return key;
