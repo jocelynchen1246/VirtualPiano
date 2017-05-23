@@ -69,15 +69,19 @@ Extras:
 Classes:
 -Keyboard: Computer/Piano keyboard 
 -Key: Each note is represented by a key, and the keyboard has multiple keys
--Main: Main method, creates an instance of the overall game
+-VirtualPiano: Main method, creates an instance of the overall game
 -Waterfall: Represents the “waterfall” format of the game (notes represented by rectangular bars fall in in line with the notes on the keyboard)(stores notes with how long each note is).
 -TitleScreen- Home screen where users can choose to play the virtual keyboard, learn a new song, or play against others 
 -Player(accuracy): calculates and displays the overall accuracy/amount correct after each song and stores it in an ArrayList(how many correct notes were played out of the total)
--Instructions (screen): extends JFrame, displays instructions for the game
+-InstructionScreen: extends JPanel, displays instructions for the game
 -WaterfallScreen: Screen with waterfall learning (notes coming down) and keyboard
+-Score: Creates and stores a list of the player's scores
 -ScoreScreen: Displays the player’s score rankings after a song
 -WaterfallKeyboard: Extends Keyboard, and records what the player is playing when on the WaterfallScreen
 -Song: Represents a song that the player can play in the WaterfallScreen
+-SongScreen: Screen where player can choose which of the three songs they want to play
+-Bars: Represents a single falling bar for the Waterfall feature
+
 
 
 
@@ -86,7 +90,7 @@ Classes:
 
 Roles:
 Ivy: Keyboard graphics, sheet music functioning/scrolling, main menu/displays
-         -ScoreScreen,  TitleScreen, WaterfallScreen
+         -Bars  TitleScreen, WaterfallScreen
 
 
 Jocelyn: Jfugue functioning (piano keyboard with computer keyboard)
