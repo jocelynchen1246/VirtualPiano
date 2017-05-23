@@ -86,8 +86,7 @@ public class WaterfallScreen extends JPanel{
 	    
 	    g2.setStroke(new BasicStroke(3));
 	    for(int i = 0; i<15 ; i++){
-	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20)
-	    	;
+	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20);
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
