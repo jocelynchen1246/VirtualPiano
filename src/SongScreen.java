@@ -23,7 +23,7 @@ public class SongScreen extends JPanel implements ActionListener {
 	 */
 	public SongScreen(VirtualPiano v){
 		this.v=v;
-		this.setSize(1195,800);
+		this.setSize(1195,600);
 		crab=new JButton("Bach Crab Canon");
 		twinkle =new JButton ("Twinkle Twinkle Little Star");
 		mary= new JButton("Mary had a little lamb");
