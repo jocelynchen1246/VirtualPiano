@@ -53,7 +53,7 @@ public class Song {
 //					notes.add(new Note(72,0.4));
 				}
 		else if(title.equalsIgnoreCase("Twinkle Twinkle little Star")){
-			Pattern pattern1 = new Pattern("C4q C4q G4q G4q A4q A4q Gh");
+			Pattern pattern1 = new Pattern("C4q C4q G4q G4q A4q A4q G4h");
 			Pattern pattern2 = new Pattern("F4q F4q E4q E4q D4q D4q C4h");
 			Pattern pattern3 = new Pattern("G4q G4q F4q F4q E4q E4q D4h");
 			tune = new Pattern();
@@ -86,10 +86,10 @@ public class Song {
 				 
 		}
 		else if(title.equalsIgnoreCase("Fur Elise")){
-			String patt1 =" E5s D#5s E5s D#5s E5s B4s D5s C5s ";
-	        String patt2 = " A4i Rs C4s E4s A4s B4i Rs E4s ";
-	        String patt3 = " G#4s B4s C5i Rs E4s ";
-	        String patt4 = " C5s B4s A4i ";
+			String patt1 ="E5s D#5s E5s D#5s E5s B4s D5s C5s ";
+	        String patt2 = "A4i Rs C4s E4s A4s B4i Rs E4s ";
+	        String patt3 = "G#4s B4s C5i Rs E4s ";
+	        String patt4 = "C5s B4s A4i ";
 	 
 	        tune.add(patt1 +  patt2 + patt3   + patt1 + patt2 + patt4);
 		}
