@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 public class Bars{
 	
-	public static final int WIDTH = 75;
+	public static final int WIDTH = 70;
 	//public static final int HEIGHT = 100;
 	
 	private double xvel, yvel;
@@ -38,53 +38,53 @@ public class Bars{
 	//	name = filename;
 		yvel = 0;
 		xvel = 0;
-		height= (int)(d*400);
+		height= (int)(d*200);
 		
 	}
 	
 	public int getHeight(Waterfall w, int x){
 		double j = w.getLength(x);
-		return (int)(j*400);
+		return (int)(j*200);
 		
 	}
 	
 	public void setX(Waterfall w, int i){
 		
 		String s = (w.getNotes().get(i).toStringWithoutDuration());
-		
+		x = (1195/15) -10;
 		if(s.equals("C4")){
-			x = 75;
+			x = 1195/15;
 		}else if(s.equals("D4")){
-			x =  75*2;
+			x =  x*2;
 		}else if(s.equals("E4")){
-			x =  75*3;
+			x =  x*3;
 		}else if(s.equals("F4")){
-			x =  75*4;
+			x =  x*4;
 		}else if(s.equals("G4")){
-			x =  75*5;
+			x =  x*5;
 		}else if(s.equals("A4")){
-			x =  75*6;
+			x =  x*6;
 		}else if(s.equals("B4")){
-			x =  75*7;
+			x =  x*7;
 		}else if(s.equals("C5")){
-			x =  75*8;
+			x =  x*8;
 		}else if(s.equals("D5")){
-			x =  75*9;
+			x =  x*9;
 		}else if(s.equals("E5")){
-			x =  75*10;
+			x =  x*10;
 		}else if(s.equals("F5")){
-			x =  75*11;
+			x =  x*11;
 		}else if(s.equals("G5")){
-			x =  75*12;
+			x =  x*12;
 		}else if(s.equals("A5")){
-			x =  75*13;
+			x =  x*13;
 		}else if(s.equals("B5")){
-			x =  75*14;
+			x =  x*14;
 		}
 		else if(s.equals("C6")){
-			x =  75*15;
+			x =  x*15;
 		}else{
-			x = 75;
+			x = 70;
 		}
 		
 	}
@@ -95,7 +95,8 @@ public class Bars{
 	}
 	
 	public void draw(Graphics g, ImageObserver io){
-		g.drawImage(img, x, y, io ); 
+		g.drawImage(img, x, y, io); 
 		
 	}
+	
 }
