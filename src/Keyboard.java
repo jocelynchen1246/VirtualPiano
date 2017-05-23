@@ -90,11 +90,19 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 		
 	}
 	
+	/**
+	 * Gets the array of keys of the keyboard.
+	 * @return the array of keys
+	 */
 	public Key[] getKeys()
 	{
 		return keys;
 	}
 	
+	/**
+	 * Gets the array of x values associated with the sharps.
+	 * @return array of x values associated with sharps
+	 */
 	public int[] getSharpXVals()
 	{
 		return sharpXVal;

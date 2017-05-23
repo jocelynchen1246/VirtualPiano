@@ -166,8 +166,12 @@ public class WaterfallScreen extends JPanel{
 			System.out.println(done);
 		}
 		
-		if(done = true)
+		if(done)
 		{
+			ScoreScreen score = new ScoreScreen(v, new Player(), synth, key);
+			v.getPanels().add(score, "7");
+			v.changePanel("7");
+			
 			
 		}
 		repaint();
