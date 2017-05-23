@@ -9,7 +9,7 @@ import org.jfugue.theory.Note;
 * @author Natalie Tarn
 */
 public class Player {
-	private ArrayList<String> scoresM, scoresT, scoresB; //M=mary had, T=twinkle, B=Bach
+	private ArrayList<String> scoresM, scoresT, scoresB, scoresF; //M=mary had, T=twinkle, B=Bach
 	private ArrayList<ArrayList<String>> song;
 	/**
 	 * This constructor creates a list of a list of scores that a player will receives after playing a piece.
@@ -18,10 +18,12 @@ public class Player {
 		scoresM= new ArrayList<String>();
 		scoresT= new ArrayList<String>();
 		scoresB= new ArrayList<String>();
+		scoresF= new ArrayList<String>();
 		song=new ArrayList<ArrayList<String>>(3);
 		song.add(scoresM);
 		song.add(scoresT);
 		song.add(scoresB);
+		song.add(scoresF);
 	}
 	
 	/**
@@ -39,17 +41,17 @@ public class Player {
 				double correctL= correct.getDuration();
 				double recordL= record.getDuration();
 				score=score+100;
-//				if(correctL==recordL){
-//					score=score+100;
-//				}
-//				else{
-//					if(recordL>correctL){
-//						score=score+100*(correctL/recordL);
-//					}
-//					else{
-//						score=score+100*(recordL/correctL);
-//					}
-//				}
+				if(correctL==recordL){
+					score=score+100;
+				}
+				else{
+					if(recordL>correctL){
+						score=score+100*(correctL/recordL);
+					}
+					else{
+						score=score+100*(recordL/correctL);
+					}
+				}
 			}
 			
 		}
@@ -72,6 +74,11 @@ public class Player {
 			scoresB.add(score1);
 			rankScore(2);
 			song.set(2, scoresB);
+		}
+		else if(x.getTitle().equalsIgnoreCase("Fur Elise")){
+			scoresB.add(score1);
+			rankScore(3);
+			song.set(3, scoresF);
 		}
 		
 		return score1;
