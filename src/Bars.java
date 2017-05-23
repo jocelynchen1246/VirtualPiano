@@ -1,8 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Shape;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 public class Bars{
 	
@@ -13,35 +18,40 @@ public class Bars{
 	private Waterfall synth;
 	private int x, y, height;
 	private String filename;
+	BufferedImage img = null;
 
 //	private ArrayList<Double> duration;
 //	private ArrayList<String> note;
 	
-	public Bars(int x, int y, double d, Waterfall w, String s) {
+	public Bars(String name, int x, int y, double d, Waterfall w, String s) {
 		//super(name, x, y, WIDTH, HEIGHT);
 		synth = w;
+		filename = name;
+		try {
+			img = ImageIO.read(new File(name));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.x = x;
 		this.y = y;
 	//	name = filename;
 		yvel = 0;
 		xvel = 0;
 		height= (int)(d*400);
-		 	for(int i = 0; i<w.getNotes().size();i++){
-			d = w.getLength(i);
-		//	duration.add(d);
-			s = (synth.getNotes().get(i).toStringWithoutDuration());
-		//	note.add(s);
-		}
 		
 	}
 	
 	public int getHeight(Waterfall w, int x){
 		double j = w.getLength(x);
 		return (int)(j*400);
+		
 	}
 	
 	public void setX(Waterfall w, int i){
+		
 		String s = (w.getNotes().get(i).toStringWithoutDuration());
+		
 		if(s.equals("C4")){
 			x = 75;
 		}else if(s.equals("D4")){
@@ -73,7 +83,10 @@ public class Bars{
 		}
 		else if(s.equals("C6")){
 			x =  75*15;
+		}else{
+			x = 75;
 		}
+		
 	}
 	
 	public void update() {
@@ -82,6 +95,6 @@ public class Bars{
 	}
 	
 	public void draw(Graphics g, ImageObserver io){
-		g.drawRoundRect(x, y, WIDTH, height, 5, 5);
+		g.drawImage(img, x, y, io );
 	}
 }

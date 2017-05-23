@@ -48,7 +48,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	    double ry = height/600.0;
 
 	    Graphics2D g2 = (Graphics2D)g;
-	    //g2.scale(rx, ry);
+	    g2.scale(rx, ry);
 	    repaint();
 	}
 	

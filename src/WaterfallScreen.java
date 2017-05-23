@@ -30,7 +30,7 @@ public class WaterfallScreen extends JPanel{
 	private ArrayList<Note> note;
 	private Waterfall synth;
 	public static final int WIDTH = 1195;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 600;
 	private int count, interval, notenum;
 	private double barpos;
 	private Bars bluebar, greenbar;
@@ -44,23 +44,19 @@ public class WaterfallScreen extends JPanel{
 	 */
 	public WaterfallScreen(VirtualPiano v, Song x) throws MidiUnavailableException{
 		count= 0;
-		barpos = 0;
+		//barpos = 0;
 		interval = 0;
-		notenum = 0;
+		//notenum = 0;
 		duration = 0.0;
-		waterfall = new JPanel();
+	//	waterfall = new JPanel();
 		b = new ArrayList<Bars>();
-	//	wf = new JPanel();
 		setLayout(new BorderLayout());
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall(x);
-		bluebar = new Bars(75,0,1.0,synth,"0");
-		greenbar = new Bars(0,0,0.0,synth,"0");
+		bluebar = new Bars("bluerect.png",75,0,1.0,synth,"0");
+		greenbar = new Bars("greenrect.png",0,0,0.0,synth,"0");
 		this.v = v;
 
-		setMinimumSize(new Dimension(500,400));
-		setSize(WIDTH, HEIGHT);
-		key.setBounds(75, 600, 725, 50 );
 		add(key, BorderLayout.SOUTH); 
 
 		int g = 0;
@@ -68,31 +64,31 @@ public class WaterfallScreen extends JPanel{
 
 		setVisible(true);
 	}
-	
+
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		int width = getWidth();
 	    int height = getHeight();
 	    double rx = width/1195.0;
-	    double ry = height/800.0;
+	    double ry = height/600.0;
 
 	    Graphics2D g2 = (Graphics2D)g;
 	    g2.scale(rx, ry);
 	    
-	    //not showing after resize
 	    
 	    g2.setStroke(new BasicStroke(3));
 	    for(int i = 0; i<15 ; i++){
-	    	g2.drawRect(75+(interval*count),0, 70, 650);
+	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20)
+	    	;
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
 	    
 	    for (int i = 0; i<synth.getNotes().size(); i++){
+	    	bluebar.draw(g, this);
 	    	bluebar.getHeight(synth, i);
 	    	bluebar.setX(synth, i);
-	    	bluebar.draw(g2, this);
-	    	bluebar.update();
+	    	bluebar.update();	
 	    }
 	/*    for (int i = 0; i<synth.getNotes().size(); i++){
 			duration = synth.getLength(i);
