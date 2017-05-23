@@ -3,10 +3,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 /**
  * Displays the users scores ranked from highest to lowest
@@ -14,13 +18,14 @@ import javax.swing.JPanel;
  * @author Natalie Tarn
  *
  */
-public class ScoreScreen extends JPanel implements MouseListener {
+public class ScoreScreen extends JPanel implements MouseListener, ActionListener {
 
 	
-	public static final int WIDTH = 800;
+	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 600;
 	VirtualPiano v;
 	private MovingImage titleBack, replay; 
+	private JButton title, restart;
 	private int width, height;
 	private boolean isInReplay;
 	private Player p;
@@ -36,12 +41,16 @@ public class ScoreScreen extends JPanel implements MouseListener {
 		this.waterfall=waterfall;
 		this.keyboard=keyboard;
 		isInReplay=false;
-
-		
+		title = new JButton("Return to TitleScreen");
+		restart= new JButton("Replay");
+		add(title);
+		add(restart);
+		title.addActionListener(this);
+		restart.addActionListener(this);
 		setBackground(Color.WHITE);
 		
-		titleBack = new MovingImage("titleButton.png", 120, 350, 50, 50);
-		replay = new MovingImage("replayButton.png", 420, 350, 50, 50);
+		//titleBack = new MovingImage("titleButton.png", 120, 350, 50, 50);
+		//replay = new MovingImage("replayButton.png", 420, 350, 50, 50);
 		setMinimumSize(new Dimension(100, 300));
 		setSize(WIDTH, HEIGHT);
 		setVisible(true);
@@ -51,15 +60,15 @@ public class ScoreScreen extends JPanel implements MouseListener {
 	{
 		Graphics2D g2 = (Graphics2D)g;
 		
-		double ratioX = getWidth() / 800.0; 
+		double ratioX = getWidth() / 1195.0; 
 		double ratioY = getHeight() / 600.0; 
 		
 		AffineTransform at = g2.getTransform();
 		
 		//g2.scale(ratioX, ratioY);
 		
-		titleBack.draw(g2, this);
-		replay.draw(g2, this);
+		//titleBack.draw(g2, this);
+		//replay.draw(g2, this);
 		
 		String s1 = "SCORE FOR " + waterfall.getTitle();
 		
@@ -91,9 +100,9 @@ public class ScoreScreen extends JPanel implements MouseListener {
 //				i++;
 //			}
 //		}
-	    
-	    
-	    
+//	    
+//	    
+//	    
 	
 		
 		
@@ -150,6 +159,20 @@ public class ScoreScreen extends JPanel implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		 String change= arg0.getActionCommand();
+		 if(change.equalsIgnoreCase("Return to TitleScreen")){
+			 v.changePanel("1");
+		 }
+		 else if(change.equalsIgnoreCase("Replay")){
+			 v.changePanel("6");
+		 }
+		
+	
 		
 	}
 }
