@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+/**
+ * This class represents a single rectangular bar that falls in the waterfallscreen
+ * @author Ivy Huang
+ *
+ */
 public class Bars{
 	
 	public static final int WIDTH = 80;
