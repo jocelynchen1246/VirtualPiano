@@ -163,7 +163,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	public void keyPressed(KeyEvent e) {
 	
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_TAB)
+		if(key == KeyEvent.VK_BACK_QUOTE)
 		{
 			keys[0].play();
 		}
@@ -273,7 +273,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	 */
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_TAB)
+		if(key == KeyEvent.VK_BACK_QUOTE)
 		{
 			keys[0].stop();
 		}
