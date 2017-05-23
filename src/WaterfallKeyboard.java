@@ -51,17 +51,17 @@ public class WaterfallKeyboard extends Keyboard {
 	    	{
     			g.setColor(Color.magenta);
     			if(i < 15)
-		    		g.drawRoundRect(i*80, -10, 75, 180, 20, 20);
+		    		g.drawRoundRect(i*80, -10, 75, 280, 20, 20);
     			else
-    				g.fillRect(getSharpXVals()[i-15], 0, 50, 100);
+    				g.fillRect(getSharpXVals()[i-15], 0, 50, 150);
 	    	}
 	    	else
 	    	{
 	    		g.setColor(Color.BLACK);
 	    		if(i < 15)
-	    			g.drawRoundRect(i*80, -10, 75, 180, 20, 20);
+	    			g.drawRoundRect(i*80, -10, 75, 280, 20, 20);
 	    		else
-    				g.fillRect(getSharpXVals()[i-15], 0, 50, 100);
+    				g.fillRect(getSharpXVals()[i-15], 0, 50, 150);
 	    	}
 	    }
 	}

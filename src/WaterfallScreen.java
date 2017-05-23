@@ -39,6 +39,7 @@ public class WaterfallScreen extends JPanel{
 	private ArrayList<Bars> b;
 	VirtualPiano v;
 	private int index;
+	private boolean done;
 	
 	
 	/**
@@ -48,16 +49,17 @@ public class WaterfallScreen extends JPanel{
 		count= 0;
 		wf1= new JPanel();
 		wf1.setOpaque(false);
-		wf2= new JPanel();
-		wf2.setOpaque(false);
+		//wf2= new JPanel();
+		//wf2.setOpaque(false);
 		barpos = 0;
 		interval = 0;
 		duration = 0.0;
 	//	waterfall = new JPanel();
 		b = new ArrayList<Bars>(); 
 		index = 0;
+		done = false;
 		
-		setLayout(new GridLayout(3,1));
+		setLayout(new GridLayout(2,1));
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall(x);
 		bluebar = new Bars("bluerect.png",0,-200,0.0,synth,"0");
@@ -70,7 +72,7 @@ public class WaterfallScreen extends JPanel{
 		r.setY(-h);
 		b.add(r);
 		this.v = v;
-		add(wf2);
+		//add(wf2);
 		add(wf1);
 		add(key); 
 
@@ -91,7 +93,7 @@ public class WaterfallScreen extends JPanel{
 	    g2.scale(rx, ry);
 	    
 	    
-	    g2.setStroke(new BasicStroke(3));
+	   // g2.setStroke(new BasicStroke(3));
 	    /*
 	    for(int i = 0; i<15 ; i++){
 	    	g2.drawRoundRect(75+(interval*count),0, 70, 650,20,20)
@@ -121,8 +123,15 @@ public class WaterfallScreen extends JPanel{
 	    	b.get(k).draw(g, this);
 	    }
 	    */ 
+	    for(int i = 0; i < 15; i++)
+	    {
+	    	g2.setStroke(new BasicStroke(5));
+	    	g.setColor(Color.GREEN);
+	    	g.drawRoundRect(80*i, 250, 75, 45, 10, 10);
+	    }
 	    for(int i = 0; i <= index; i++)
 	    {
+	    	g.setColor(Color.BLUE);
 	    	b.get(i).draw(g, this);
 	    }
 	    run();
@@ -150,6 +159,11 @@ public class WaterfallScreen extends JPanel{
 			
 			b.add(x);
 			index++;
+		}
+		else if(index == synth.getNotes().size()-1 && b.get(index).getY() > 600)
+		{
+			done = true;
+			System.out.println(done);
 		}
 		repaint();
 	}
