@@ -95,12 +95,7 @@ public class WaterfallScreen extends JPanel{
 	    	bluebar.getHeight(synth, k);
 	    	bluebar.setX(synth, k);
 	    	b.add(bluebar);
-	    	for(int l = 0; l<synth.getNotes().size(); l++){
-	    		notenum += synth.getLength(l);
-	    		
-	    	}
-	    	
-	    	
+	    	b.get(k).update();
 	    	b.get(k).draw(g, this);
 	    }
 			repaint();  
