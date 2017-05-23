@@ -95,6 +95,7 @@ public class Bars{
 	}
 	
 	public void draw(Graphics g, ImageObserver io){
-		g.drawImage(img, x, y, io );
+		g.drawImage(img, x, y, io ); 
+		
 	}
 }

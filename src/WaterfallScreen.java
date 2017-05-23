@@ -1,8 +1,10 @@
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Shape;
@@ -25,7 +27,7 @@ import org.jfugue.realtime.RealtimePlayer;
 //take 
 public class WaterfallScreen extends JPanel{
 
-	private JPanel waterfall, wf;
+	private JPanel waterfall, wf1, wf2;
 	private WaterfallKeyboard key;
 	private ArrayList<Note> note;
 	private Waterfall synth;
@@ -44,20 +46,26 @@ public class WaterfallScreen extends JPanel{
 	 */
 	public WaterfallScreen(VirtualPiano v, Song x) throws MidiUnavailableException{
 		count= 0;
-		//barpos = 0;
+		wf1= new JPanel();
+		wf1.setOpaque(false);
+		wf2= new JPanel();
+		wf2.setOpaque(false);
+		barpos = 0;
 		interval = 0;
 		//notenum = 0;
 		duration = 0.0;
 	//	waterfall = new JPanel();
-		b = new ArrayList<Bars>();
-		setLayout(new BorderLayout());
+		b = new ArrayList<Bars>(); 
+	
+		setLayout(new GridLayout(3,1));
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall(x);
 		bluebar = new Bars("bluerect.png",75,0,1.0,synth,"0");
 		greenbar = new Bars("greenrect.png",0,0,0.0,synth,"0");
 		this.v = v;
-
-		add(key, BorderLayout.SOUTH); 
+		add(wf2);
+		add(wf1);
+		add(key); 
 
 		int g = 0;
 		g = key.getHeight()/2;
@@ -65,7 +73,7 @@ public class WaterfallScreen extends JPanel{
 		setVisible(true);
 	}
 
-	public void paintComponent(Graphics g){
+	public void paintComponent(Graphics g, ImageObserver io){
 		super.paintComponent(g);
 		int width = getWidth();
 	    int height = getHeight();
@@ -84,12 +92,16 @@ public class WaterfallScreen extends JPanel{
 	    	count++;
 	    }
 	    
-	    for (int i = 0; i<synth.getNotes().size(); i++){
-	    	bluebar.draw(g, this);
-	    	bluebar.getHeight(synth, i);
-	    	bluebar.setX(synth, i);
-	    	bluebar.update();	
+	    for (int k = 0; k<synth.getNotes().size(); k++){
+	    	bluebar.getHeight(synth, k);
+	    	bluebar.setX(synth, k);
+	    	b.add(bluebar);
 	    }
+	    
+
+	    
+	   
+	    
 	/*    for (int i = 0; i<synth.getNotes().size(); i++){
 			duration = synth.getLength(i);
 			if(duration == 1.0){
