@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 public class SongScreen extends JPanel implements ActionListener {
 	
 	VirtualPiano v;
-	private JButton crab, twinkle, mary;
+	private JButton crab, twinkle, mary, furElise;
 	private JButton back;
 	private Song chosen;
 	
@@ -29,15 +29,18 @@ public class SongScreen extends JPanel implements ActionListener {
 		crab=new JButton("Bach Crab Canon");
 		twinkle =new JButton ("Twinkle Twinkle Little Star");
 		mary= new JButton("Mary Had a Little Lamb");
+		furElise= new JButton("Fur Elise");
 		back = new JButton("Back");
 		
 		crab.addActionListener(this);
 		twinkle.addActionListener(this);
 		mary.addActionListener(this);
+		furElise.addActionListener(this);
 		back.addActionListener(this);
 		add(crab);
 		add(twinkle);
 		add(mary);
+		add(furElise);
 		add(back);
 	}
 
@@ -78,6 +81,17 @@ public class SongScreen extends JPanel implements ActionListener {
 					e.printStackTrace();
 				}
 				 v.getPanels().add(waterfall, "6");
+				v.changePanel("6");
+		 }
+		 else if(change.equalsIgnoreCase("Fur Elise")){
+			 chosen=new Song("Fur Elise");
+			 try {
+					waterfall = new WaterfallScreen(v, chosen);
+				} catch (MidiUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				v.getPanels().add(waterfall, "6");
 				v.changePanel("6");
 		 }
 		 else if(change.equalsIgnoreCase("Back"))

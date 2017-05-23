@@ -85,6 +85,14 @@ public class Song {
 					+" A5q Rq C#5h Bb5h A5h E5h D5h");
 				 
 		}
+		else if(title.equalsIgnoreCase("Fur Elise")){
+			String patt1 =" E6s D#6s E6s D#6s E6s B5s D6s C6s ";
+	        String patt2 = " A5i Rs C5s E5s A5s B5i Rs E5s ";
+	        String patt3 = " G#5s B5s C6i Rs E5s ";
+	        String patt4 = " C6s B5s A5i ";
+	 
+	        tune.add(patt1 +  patt2 + patt3 + patt1 + patt2 + patt4);
+		}
 			}
 	
 	/**
