@@ -22,6 +22,7 @@ public class VirtualPiano extends JFrame{
 	
 	private JPanel cardPanel;
 	
+	public Keyboard getKeyboard() { return keyboard; }
 	
 	public VirtualPiano(String titl) throws MidiUnavailableException
 	{
@@ -34,13 +35,13 @@ public class VirtualPiano extends JFrame{
 		choose= new SongScreen(this);
 		
 		keyboard = new Keyboard(realplayer,this);
-		
+		addKeyListener(keyboard);
 
 		instruction = new InstructionScreen(this);
 		
 		keyboard.setFocusTraversalKeysEnabled(false);
 
-		addKeyListener(keyboard);
+		
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
