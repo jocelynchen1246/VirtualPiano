@@ -40,8 +40,8 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		setVisible(true);
 	}
 
-	public void paintComponent(Graphics g){
-		super.paintComponent(g);
+	public void paint(Graphics g){
+		super.paint(g);
 		int width = getWidth();
 	    int height = getHeight();
 	    double rx = width/1195.0;

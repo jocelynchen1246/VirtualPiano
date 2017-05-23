@@ -24,38 +24,38 @@ public class Song {
 					tune.add("D4q D4q D4h E4q G4q G4h");
 					tune.add(p1);
 					tune.add("D4q D4q E4q D4q C4h");
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(72,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(76,0.5));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(72,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(75,0.4));
 					
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(74,0.5));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(79,0.25));
-//					notes.add(new Note(79,0.5));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(74,0.4));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(79,0.24));
+//					notes.add(new Note(79,0.4));
 //					
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(72,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(76,0.5));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(76,0.25));
-//					notes.add(new Note(74,0.25));
-//					notes.add(new Note(72,0.5));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(72,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(75,0.4));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(75,0.24));
+//					notes.add(new Note(74,0.24));
+//					notes.add(new Note(72,0.4));
 				}
 		else if(title.equalsIgnoreCase("Twinkle Twinkle little Star")){
-			Pattern pattern1 = new Pattern("C5q C5q G5q G5q A5q A5q Gh");
-			Pattern pattern2 = new Pattern("F5q F5q E5q E5q D5q D5q C5h");
-			Pattern pattern3 = new Pattern("G5q G5q F5q F5q E5q E5q D5h");
+			Pattern pattern1 = new Pattern("C4q C4q G4q G4q A4q A4q Gh");
+			Pattern pattern2 = new Pattern("F4q F4q E4q E4q D4q D4q C4h");
+			Pattern pattern3 = new Pattern("G4q G4q F4q F4q E4q E4q D4h");
 			tune = new Pattern();
 			tune.add(pattern1);
 			tune.add(pattern2);
@@ -65,25 +65,33 @@ public class Song {
 			tune.add(pattern2); 
 		}
 		else if(title.equalsIgnoreCase("Bach Crab Canon")){
-			tune = new Pattern("D5h E5h A5h Bb5h C#5h Rq A5q "+
-				    "A5q Ab5h G5q G5q F#5h F5q F5q E5q Eb5q D5q "+ 
-				    "C#5q A3q D5q G5q F5h E5h D5h F5h A5i G5i A5i "+
-				    "D6i A5i F5i E5i F5i G5i A5i B5i C#6i D6i F5i "+
-				    "G5i A5i Bb5i E5i F5i G5i A5i G5i F5i E5i F5i "+
-				    "G5i A5i Bb5i C6i Bb5i A5i G5i A5i Bb5i C6i D6i "+
-				    "Eb6i C6i Bb5i A5i B5i C#6i D6i E6i F6i D6i "+
-				    "C#6i B5i C#6i D6i E6i F6i G6i E6i A5i E6i D6i "+
-				    "E6i F6i G6i F6i E6i D6i C#6i D6q A5q F5q D5q");
-			tune.add("D5q F5q A5q D6q C#6i D6i E6i F6i G6i F6i E6i"    				
-					+" D6i E6i A5i E6i G6i F6i E6i D6i C#6i B5i C#6i"    				
-					+" D6i F6i E6i D6i C#6i B5i A5i Bb5i C6i Eb6i"    				
-					+" D6i C6i Bb5i A5i G5i A5i Bb5i C6i Bb5i A5i G5i"    				
-					+" F5i E5i F5i G5i A5i G5i F5i E5i Bb5i A5i G5i"    				
-					+" F5i D6i C#6i B5i A5i G5i F5i E5i F5i A5i D6i"    				
-					+" A5i G5i A5i F5h D5h E5h F5h G5q D5q A3q C#5h"    				
-					+" D5q Eb5q E5q F5q F5q F#5h G5q G5q Ab5h A5q"    				
-					+" A5q Rq C#5h Bb5h A5h E5h D5h");
+			tune = new Pattern("D4h E4h A4h Bb4h C#4h Rq A4q "+
+				    "A4q Ab4h G4q G4q F#4h F4q F4q E4q Eb4q D4q "+ 
+				    "C#4q A3q D4q G4q F4h E4h D4h F4h A4i G4i A4i "+
+				    "D5i A4i F4i E4i F4i G4i A4i B4i C#5i D5i F4i "+
+				    "G4i A4i Bb4i E4i F4i G4i A4i G4i F4i E4i F4i "+
+				    "G4i A4i Bb4i C5i Bb4i A4i G4i A4i Bb4i C5i D5i "+
+				    "Eb5i C5i Bb4i A4i B4i C#5i D5i E5i F5i D5i "+
+				    "C#5i B4i C#5i D5i E5i F5i G5i E5i A4i E5i D5i "+
+				    "E5i F5i G5i F5i E5i D5i C#5i D5q A4q F4q D4q");
+			tune.add("D4q F4q A4q D5q C#5i D5i E5i F5i G5i F5i E5i"    				
+					+" D5i E5i A4i E5i G5i F5i E5i D5i C#5i B4i C#5i"    				
+					+" D5i F5i E5i D5i C#5i B4i A4i Bb4i C5i Eb5i"    				
+					+" D5i C5i Bb4i A4i G4i A4i Bb4i C5i Bb4i A4i G4i"    				
+					+" F4i E4i F4i G4i A4i G4i F4i E4i Bb4i A4i G4i"    				
+					+" F4i D5i C#5i B4i A4i G4i F4i E4i F4i A4i D5i"    				
+					+" A4i G4i A4i F4h D4h E4h F4h G4q D4q A3q C#4h"    				
+					+" D4q Eb4q E4q F4q F4q F#4h G4q G4q Ab4h A4q"    				
+					+" A4q Rq C#4h Bb4h A4h E4h D4h");
 				 
+		}
+		else if(title.equalsIgnoreCase("Fur Elise")){
+			String patt1 =" E5s D#5s E5s D#5s E5s B4s D5s C5s ";
+	        String patt2 = " A4i Rs C4s E4s A4s B4i Rs E4s ";
+	        String patt3 = " G#4s B4s C5i Rs E4s ";
+	        String patt4 = " C5s B4s A4i ";
+	 
+	        tune.add(patt1 +  patt2 + patt3   + patt1 + patt2 + patt4);
 		}
 			}
 	
