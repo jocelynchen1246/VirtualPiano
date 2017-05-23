@@ -26,7 +26,7 @@ public class VirtualPiano extends JFrame{
 	public VirtualPiano(String titl) throws MidiUnavailableException
 	{
 		super(titl);
-		setBounds(100, 100, 1200, 600);
+		setBounds(100, 100, 1195, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		player= new Player();
 		realplayer = new RealtimePlayer();
@@ -41,7 +41,6 @@ public class VirtualPiano extends JFrame{
 		keyboard.setFocusTraversalKeysEnabled(false);
 
 		addKeyListener(keyboard);
-		
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);

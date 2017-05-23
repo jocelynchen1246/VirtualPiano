@@ -38,6 +38,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	{
 		super();
 		setBackground(Color.WHITE);
+		setSize(1195, 600);
 		
 		this.v = v;
 		
@@ -88,7 +89,16 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 		
 		
 	}
-
+	
+	public Key[] getKeys()
+	{
+		return keys;
+	}
+	
+	public int[] getSharpXVals()
+	{
+		return sharpXVal;
+	}
 	/**
 	 * Draws the keyboard onto the window
 	 * @param g the Graphics component used to draw the keyboard
@@ -99,12 +109,12 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    int width = getWidth();
 	    int height = getHeight();
 
-	    double ratioX = width/1215.0;
+	    double ratioX = width/1195.0;
 	    double ratioY = height/600.0;
 	    //multiply all X values by the x ratio and multiply all y values by the y ratio
 	    //scale method in Graphics 2D
 	    Graphics2D g2 = (Graphics2D)g;
-	  // g2.scale(ratioX, ratioY);
+	    //g2.scale(ratioX, ratioY);
 	    
 	   
 	    g2.setStroke(new BasicStroke(5));
@@ -114,7 +124,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    	{
     			g.setColor(Color.magenta);
     			if(i < 15)
-		    		g.drawRoundRect(i*80, -10, 75, 555, 20, 20);
+		    		g.drawRoundRect(i*80, -10, 75, 560, 20, 20);
     			else
     				g.fillRect(sharpXVal[i-15], 0, 50, 350);
 	    	}
@@ -122,7 +132,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	    	{
 	    		g.setColor(Color.BLACK);
 	    		if(i < 15)
-	    			g.drawRoundRect(i*80, -10, 75, 555, 20, 20);
+	    			g.drawRoundRect(i*80, -10, 75, 560, 20, 20);
 	    		else
     				g.fillRect(sharpXVal[i-15], 0, 50, 350);
 	    	}
@@ -293,7 +303,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 		}
 		else if(key == KeyEvent.VK_U)
 		{
-			keys[7].stop();
+			System.out.println(keys[7].stop());
 		}
 		else if(key == KeyEvent.VK_I)
 		{
@@ -382,6 +392,7 @@ public class Keyboard extends JPanel implements KeyListener, KeyEventDispatcher,
 	 */
 	public boolean dispatchKeyEvent(KeyEvent e) {
 		int code = e.getKeyCode();
+		//System.out.println(code);
 			switch (e.getID())
 			{
 				case KeyEvent.KEY_PRESSED:
