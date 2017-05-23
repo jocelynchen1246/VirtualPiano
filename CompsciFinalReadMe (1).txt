@@ -12,7 +12,7 @@ The user will use various keys on the computer keyboard in order to play a piece
 Instructions
 
 
-Lower C: tab 
+Lower C: ~
 C#/Db: 1
 D: q
 D#/Eb: 2
