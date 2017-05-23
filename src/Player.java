@@ -37,7 +37,7 @@ public class Player {
 		for(int i =0; i<x.getNotes().size();i++){
 			Note correct=x.getNotes().get(i);
 			Note record=keyboard.getRecord().get(i);
-			if(correct.toString().equals(record.toString())){
+			if(correct.toStringWithoutDuration().equals(record.toStringWithoutDuration())){
 				double correctL= correct.getDuration();
 				double recordL= record.getDuration();
 				score=score+100;
