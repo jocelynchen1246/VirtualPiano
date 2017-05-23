@@ -32,7 +32,7 @@ public class WaterfallScreen extends JPanel{
 	private Waterfall synth;
 	public static final int WIDTH = 1195;
 	public static final int HEIGHT = 600;
-	private int count, interval, notenum;
+	private int count, interval, notenum, currenty;
 	private double barpos;
 	private Bars bluebar, greenbar;
 	private double duration;
@@ -52,14 +52,18 @@ public class WaterfallScreen extends JPanel{
 		barpos = 0;
 		interval = 0;
 		duration = 0.0;
+		currenty = 0;
 	//	waterfall = new JPanel();
 		b = new ArrayList<Bars>(); 
 	
 		setLayout(new GridLayout(3,1));
 		key = new WaterfallKeyboard(new RealtimePlayer(), v);
 		synth = new Waterfall(x);
-		bluebar = new Bars("bluerect.png",0,0,0.0,synth,"0");
+		bluebar = new Bars("bluerect.png",0,-200,0.0,synth,"0");
 		greenbar = new Bars("greenrect.png",0,0,0.0,synth,"0");
+		bluebar.getHeight(synth, 0);
+		bluebar.setX(synth, 0);
+		b.add(bluebar);
 		notenum = synth.getNotes().size();
 		this.v = v;
 		add(wf2);
@@ -90,15 +94,36 @@ public class WaterfallScreen extends JPanel{
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
+	    for(int j = 0; j< synth.getNotes().size();j++){
+	    	run();
+	    	b.get(j).draw(g2, this);
+	    }
 	    
-	    for (int k = 0; k<synth.getNotes().size(); k++){
+	/*    for (int k = 0; k<synth.getNotes().size(); k++){
 	    	bluebar.getHeight(synth, k);
 	    	bluebar.setX(synth, k);
+
+	    	b.add(bluebar);
 	    	b.get(k).update();
 	    	b.get(k).draw(g, this);
 	    }
+	    */
 			repaint();  
 
+			
+	}
+	
+	public void run(){
+		for (int k = 0; k<synth.getNotes().size(); k++){
+		bluebar.getHeight(synth, k);
+    	bluebar.setX(synth, k);
+    	if(bluebar.getY()==0){
+    		b.add(bluebar);
+    	}
+    	b.get(k).update();
+
+	}
+		repaint();
 	}
 	public WaterfallKeyboard getKeyboard(){
 		return key;
