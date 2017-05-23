@@ -11,12 +11,13 @@ import javax.imageio.ImageIO;
 
 public class Bars{
 	
-	public static final int WIDTH = 70;
+	public static final int WIDTH = 80;
 	//public static final int HEIGHT = 100;
 	
-	private double xvel, yvel;
+	private double xvel, yvel,y;
 	private Waterfall synth;
-	private int x, y, height;
+	private int x, height;
+	
 	private String filename;
 	BufferedImage img = null;
 
@@ -37,7 +38,7 @@ public class Bars{
 		name = filename;
 		yvel = 0;
 		xvel = 0;
-		height= (int)(d*200);
+		height= (int)(d*100);
 		
 	}
 	
@@ -90,17 +91,17 @@ public class Bars{
 	
 	public void update() {
 	//	yvel += 0.7;
-		y+=5;
+		y+=0.01;
 	}
 	
 	public int getX(){
 		return x;
 	}
-	public int getY(){
+	public double getY(){
 		return y;
 	}
 	public void draw(Graphics g, ImageObserver io){
-		g.drawImage(img, x, y, io); 
+		g.drawImage(img, x, (int)y, io); 
 		
 	}
 	
