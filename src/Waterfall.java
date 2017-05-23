@@ -68,4 +68,8 @@ public class Waterfall {
 	public String getTitle(){
 		return song.getTitle();
 		}
+	
+	public Note getNote(int index){
+		return notes.get(index);
 	}
+}

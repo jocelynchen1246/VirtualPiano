@@ -28,7 +28,8 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		String text = "<br>How To Play <br>By: Ivy Huang, Jocelyn Chen, Natalie Tarn"
 				+ "<br>Virtual Piano<br>"
 				+ "This application stimulates a real life piano, allowing the player to play real songs <br> using the computer keyboard in two different modes, \"Keyboard\", and \"Synthesia\"."
-				+ "<br>Please refer to the README for the full piano to computer key relationship. ";
+				+ "<br>Lower C: tab C#/Db: 1 D: q D#/Eb: 2 E: w F: e F#/Gb: 4 G: r G#/Ab: 5 A: t A#/Bb: 6 B: y Middle C: u C#/Db: 8 D: i D#/Eb: 9 E: o F: p F#/Gb: - G: [ G#/Ab: = A: ] A#/Bb: backspace"+
+				"<br>B: enter Upper C: \\ <br>";
 	
 		info = new JLabel("<html><div style='text-align: center;'>" + text + "</html>",SwingConstants.CENTER);
 		info.setFont(new Font("Dosis", 0, 15));
