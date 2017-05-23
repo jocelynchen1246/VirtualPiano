@@ -29,6 +29,15 @@ public class Bars{
 //	private ArrayList<Double> duration;
 //	private ArrayList<String> note;
 	
+	/**
+	 * Creates a rectangular bar that falls on the WaterfallScreen according to the song
+	 * @param name the name of the image file
+	 * @param x the x coordinate of the bar to be drawn
+	 * @param y the y coordinate of the bar to be drawn
+	 * @param d the duration of the note in the song
+	 * @param w the Waterfall being used
+	 * @param s the current note in the song
+	 */
 	public Bars(String name, int x, int y, double d, Waterfall w, String s) {
 		synth = w;
 		filename = name;
@@ -46,7 +55,12 @@ public class Bars{
 		height= (int)(d*100);
 		
 	}
-	
+	/**
+	 * sets the new height of the bar
+	 * @param w the Waterfall being used
+	 * @param x the index of the of the Note ArrayList in w
+	 * @return the new height of the bar
+	 */
 	public int setHeight(Waterfall w, int x){
 		double j = w.getLength(x);
 		height = (int)(j*200);
@@ -54,10 +68,20 @@ public class Bars{
 		
 	}
 	
+	/**
+	 *  Sets the current y coordinate of the bar.
+	 * @param y the current y coordinate of the bar
+	 */
 	public void setY(double y)
 	{
 		this.y = y;
 	}
+	
+	/**
+	 * Sets the new x value of the bar
+	 * @param w the waterfall being implemented
+	 * @param i the index of the of the Note ArrayList in w
+	 */
 	public void setX(Waterfall w, int i){
 		
 		String s = (w.getNotes().get(i).toStringWithoutDuration());
@@ -99,17 +123,35 @@ public class Bars{
 		
 	}
 	
+	/**
+	 * changes the y coordinate of the bar by 0.5
+	 */
 	public void update() {
 	//	yvel += 0.7;
 		y+=0.5;
 	}
 	
+	/**
+	 * returns the current x value
+	 * @return current x value
+	 */
 	public int getX(){
 		return x;
 	}
+	
+	/**
+	 * returns the current y value
+	 * @return current y value
+	 */
 	public double getY(){
 		return y;
 	}
+	
+	/**
+	 * draws the bar on the screen
+	 * @param g Graphics
+	 * @param io ImageObserver
+	 */
 	public void draw(Graphics g, ImageObserver io){
 		g.drawImage(img, x, (int)y, 80, height, io); 
 		
