@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,7 @@ public class SongScreen extends JPanel implements ActionListener {
 	
 	VirtualPiano v;
 	private JButton crab, twinkle, mary;
+	private JButton back;
 	private Song chosen;
 	
 	/**
@@ -26,13 +28,17 @@ public class SongScreen extends JPanel implements ActionListener {
 		this.setSize(1195,800);
 		crab=new JButton("Bach Crab Canon");
 		twinkle =new JButton ("Twinkle Twinkle Little Star");
-		mary= new JButton("Mary had a little lamb");
+		mary= new JButton("Mary Had a Little Lamb");
+		back = new JButton("Back");
+		
 		crab.addActionListener(this);
 		twinkle.addActionListener(this);
 		mary.addActionListener(this);
+		back.addActionListener(this);
 		add(crab);
 		add(twinkle);
 		add(mary);
+		add(back);
 	}
 
 	@Override
