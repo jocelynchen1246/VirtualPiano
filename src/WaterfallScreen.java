@@ -90,10 +90,14 @@ public class WaterfallScreen extends JPanel{
 	    	interval = (1195-75)/15;
 	    	count++;
 	    }
-	    for(int j = 0; j< synth.getNotes().size();j++){
-	    	run();
-	    	b.get(j).update();
-	    	b.get(j).draw(g2, this);
+	    	for (int k = 0; k<synth.getNotes().size(); k++){
+	    		bluebar.getHeight(synth, k);
+	        	bluebar.setX(synth, k);
+	        	b.add(bluebar);
+	        	b.get(k).update();
+		    	b.get(k).draw(g2, this);
+	    	}
+	    	repaint();  
 	    }
 	    
 	/*    for (int k = 0; k<synth.getNotes().size(); k++){
@@ -104,11 +108,9 @@ public class WaterfallScreen extends JPanel{
 	    	b.get(k).update();
 	    	b.get(k).draw(g, this);
 	    }
-	    */
-			repaint();  
+	    */ 
 
 			
-	}
 	
 	public void run(){
 		for (int k = 0; k<synth.getNotes().size(); k++){
@@ -118,6 +120,7 @@ public class WaterfallScreen extends JPanel{
 	}
 		repaint();
 	}
+	
 	public WaterfallKeyboard getKeyboard(){
 		return key;
 	}
