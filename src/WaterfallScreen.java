@@ -165,6 +165,11 @@ public class WaterfallScreen extends JPanel{
 			done = true;
 			System.out.println(done);
 		}
+		
+		if(done = true)
+		{
+			
+		}
 		repaint();
 	}
 	
