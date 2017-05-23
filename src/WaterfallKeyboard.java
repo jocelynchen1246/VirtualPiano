@@ -1,4 +1,7 @@
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -21,6 +24,7 @@ public class WaterfallKeyboard extends Keyboard {
 	public WaterfallKeyboard(RealtimePlayer player, VirtualPiano v) {
 		super(player, v);
 		recordedNotes = new ArrayList<Note>();
+		setSize(1195, 200);
 	}
 	
 	/**
@@ -28,7 +32,38 @@ public class WaterfallKeyboard extends Keyboard {
 	 * @param g the Graphics component used to draw the keyboard
 	 */
 	public void paintComponent(Graphics g){
-		super.paintComponent(g);
+		//super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
+	    int width = getWidth();
+	    int height = getHeight();
+
+	    double ratioX = width/1195.0;
+	    double ratioY = height/200.0;
+	    //multiply all X values by the x ratio and multiply all y values by the y ratio
+	    //scale method in Graphics 2D
+	    Graphics2D g2 = (Graphics2D)g;
+	    //g2.scale(ratioX, ratioY);
+	    
+	   
+	    g2.setStroke(new BasicStroke(5));
+	    for(int i = 0; i < 25; i++)
+	    {
+	    	if(getKeys()[i].isPlaying())
+	    	{
+    			g.setColor(Color.magenta);
+    			if(i < 15)
+		    		g.drawRoundRect(i*80, -10, 75, 180, 20, 20);
+    			else
+    				g.fillRect(getSharpXVals()[i-15], 0, 50, 100);
+	    	}
+	    	else
+	    	{
+	    		g.setColor(Color.BLACK);
+	    		if(i < 15)
+	    			g.drawRoundRect(i*80, -10, 75, 180, 20, 20);
+	    		else
+    				g.fillRect(getSharpXVals()[i-15], 0, 50, 100);
+	    	}
+	    }
 	}
 	
 	
