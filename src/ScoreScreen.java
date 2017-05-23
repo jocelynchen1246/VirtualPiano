@@ -67,30 +67,30 @@ public class ScoreScreen extends JPanel implements MouseListener {
 	    String score =p.calcScore(waterfall, keyboard);
 	    g.drawString(score,30,40);
 	    int i=0;
-	    if(waterfall.getTitle().equalsIgnoreCase("Mary had a little lamb")){
-			for(i=0; p.getScores(0).get(i)!=null;i++){
-				g.drawString(i+" "+p.getScores(0).get(i),30,40+10*(i+1));
-				i++;
-			}
-		}
-		else if(waterfall.getTitle().equalsIgnoreCase("Twinkle twinkle little star")){
-			for(i=0; p.getScores(0).get(i)!=null;i++){
-				g.drawString(i+" "+p.getScores(0).get(i),30,40+10*(i+1));
-				i++;
-			}
-		}
-		else if(waterfall.getTitle().equalsIgnoreCase("Crab Canon")){
-			for(i=0; p.getScores(0).get(i)!=null;i++){
-				g.drawString(i+" "+p.getScores(0).get(i),30,40+10*(i+1));
-				i++;
-			}
-		}
-		else if(waterfall.getTitle().equalsIgnoreCase("Fur Elise")){
-			for(i=0; p.getScores(0).get(i)!=null;i++){
-				g.drawString(i+" "+p.getScores(0).get(i),30,40+10*(i+1));
-				i++;
-			}
-		}
+//	    if(waterfall.getTitle().equalsIgnoreCase("Mary had a little lamb")){
+//			for(i=0; p.getScores(0).get(i)!=null;i++){
+//				g.drawString(i+" "+p.getScores(0).get(i),30,40+10*(i+1));
+//				i++;
+//			}
+//		}
+//		else if(waterfall.getTitle().equalsIgnoreCase("Twinkle twinkle little star")){
+//			for(i=0; p.getScores(1).get(i)!=null;i++){
+//				g.drawString(i+" "+p.getScores(1).get(i),30,40+10*(i+1));
+//				i++;
+//			}
+//		}
+//		else if(waterfall.getTitle().equalsIgnoreCase("Crab Canon")){
+//			for(i=0; p.getScores(2).get(i)!=null;i++){
+//				g.drawString(i+" "+p.getScores(2).get(i),30,40+10*(i+1));
+//				i++;
+//			}
+//		}
+//		else if(waterfall.getTitle().equalsIgnoreCase("Fur Elise")){
+//			for(i=0; p.getScores(3).get(i)!=null;i++){
+//				g.drawString(i+" "+p.getScores(3).get(i),30,40+10*(i+1));
+//				i++;
+//			}
+//		}
 	    
 	    
 	    
